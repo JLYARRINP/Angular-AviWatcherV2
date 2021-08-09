@@ -1,0 +1,33 @@
+{
+    "name": "UAT",
+    "url": "https://apis.uat.interbank.pe/evabroker/conversations/",
+    "subscriptionKey": "c9664a560c184e8cb857e5d2a7efabc4",
+    "apiKey": "20dcb8cb-4603-4efa-a78a-8bb4f83ce46a",
+    "projects": [{
+            "name": "AVI RETAIL",
+            "project": "EXT_CONTACT",
+            "channel": "WAPP_CC"
+
+        },
+        {
+            "name": "AVI COBRANZAS",
+            "project": "EXT_COBRANZA",
+            "channel": "WAPP_COB"
+
+        },
+        {
+            "name": "AYNI CONTACT",
+            "project": "AVI-INTERNO",
+            "channel": "WEB"
+
+        },
+        {
+            "name": "AYNI TIENDAS",
+            "project": "PoC_tiendas",
+            "channel": "WEB-TIENDAS"
+
+        }
+    ]
+
+
+}

@@ -1,0 +1,33 @@
+{
+    "name": "STG",
+    "url": "https://eu2-ibk-apm-stg-ext-001.azure-api.net/evabroker/conversations/",
+    "subscriptionKey": "534cbfdafd7b438ba07cbaf250ff094d",
+    "apiKey": "20dcb8cb-4603-4efa-a78a-8bb4f83ce46a",
+    "projects": [{
+            "name": "AVI RETAIL",
+            "project": "EXT_CONTACT",
+            "channel": "WAPP_CC"
+
+        },
+        {
+            "name": "AVI COBRANZAS",
+            "project": "EXT_COBRANZA",
+            "channel": "WAPP_COB"
+
+        },
+        {
+            "name": "AYNI CONTACT",
+            "project": "AVI-INTERNO",
+            "channel": "WEB"
+
+        },
+        {
+            "name": "AYNI TIENDAS",
+            "project": "PoC_tiendas",
+            "channel": "WEB-TIENDAS"
+
+        }
+    ]
+
+
+}

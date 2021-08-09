@@ -1,0 +1,25 @@
+[{
+        "name": "AVI RETAIL",
+        "project": "EXT_CONTACT",
+        "channel": "WAPP_CC"
+
+    },
+    {
+        "name": "AVI COBRANZAS",
+        "project": "EXT_COBRANZA",
+        "channel": "WAPP_COB"
+
+    },
+    {
+        "name": "AYNI CONTACT",
+        "project": "AVI-INTERNO",
+        "channel": "WEB"
+
+    },
+    {
+        "name": "AYNI TIENDAS",
+        "project": "PoC_tiendas",
+        "channel": "WEB-TIENDAS"
+
+    }
+]
