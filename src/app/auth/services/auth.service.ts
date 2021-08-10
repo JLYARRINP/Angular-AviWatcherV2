@@ -7,12 +7,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class AuthService {
   private userService: Storage;
-  // private currentSession: Session = null;
-
-  // private API_URL: string; 
-
-  // body: string;
-
   constructor(private router: Router,
     private httpClient: HttpClient,) {
     this.userService = localStorage;}
