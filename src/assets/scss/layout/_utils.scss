@@ -1,0 +1,263 @@
+$spaceamounts: (-110, -76, -60, -50, -40, -20, -19, -18, -17, -15, -12, -10, -7, -6, -5, -4, -3, -2, -1, -16, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 24, 25, 28, 30, 32, 35, 40, 45, 50, 60, 68, 100, 110, 160);
+//Height
+@each $space in $spaceamounts {
+    .h-#{$space} {
+        height: #{$space}px;
+    }
+}
+
+.hp-100 {
+    height: 100%;
+}
+
+.flex-class {
+    display: flex!important;
+}
+
+.morado {
+    color: #954b97;
+}
+
+.casi-black {
+    color: #454647;
+    ;
+}
+
+.casi-black-2 {
+    color: #50535a;
+}
+
+.casi-black-3 {
+    color: #86888c;
+}
+
+.black-3 {
+    color: #090b0f!important;
+}
+
+.disabled {
+    opacity: 0.5;
+}
+
+//Margin
+@each $space in $spaceamounts {
+    .m-#{$space} {
+        margin: #{$space}px;
+    }
+    .mt-#{$space} {
+        margin-top: #{$space}px;
+    }
+    .mb-#{$space} {
+        margin-bottom: #{$space}px;
+    }
+    .mv-#{$space} {
+        margin-top: #{$space}px;
+        margin-bottom: #{$space}px;
+    }
+    .mh-#{$space} {
+        margin-left: #{$space}px;
+        margin-right: #{$space}px;
+    }
+    .ml-#{$space} {
+        margin-left: #{$space}px;
+    }
+    .mr-#{$space} {
+        margin-right: #{$space}px;
+    }
+}
+
+//Padding
+@each $space in $spaceamounts {
+    .p-#{$space} {
+        padding: #{$space}px;
+    }
+    .pt-#{$space} {
+        padding-top: #{$space}px;
+    }
+    .pb-#{$space} {
+        padding-bottom: #{$space}px;
+    }
+    .pv-#{$space} {
+        padding-top: #{$space}px;
+        padding-bottom: #{$space}px;
+    }
+    .ph-#{$space} {
+        padding-left: #{$space}px;
+        --padding-start:#{$space}px;
+        --padding-end:#{$space}px;
+        padding-right: #{$space}px;
+    }
+    .pl-#{$space} {
+        padding-left: #{$space}px;
+    }
+    .pr-#{$space} {
+        padding-right: #{$space}px;
+    }
+    .-ps-#{$space} {
+        --padding-start: #{$space}px;
+    }
+    .-pt-#{$space} {
+        --padding-top: #{$space}px;
+    }
+    .-pb-#{$space} {
+        --padding-bottom: #{$space}px;
+    }
+}
+
+//Justify
+.jc-center {
+    justify-content: center;
+}
+
+.jc-fe {
+    justify-content: flex-end;
+}
+
+.jc-fs {
+    justify-content: flex-start;
+}
+
+.jc-sb {
+    justify-content: space-between;
+}
+
+//Text align
+.ta-r {
+    text-align: right;
+}
+
+.ta-l {
+    text-align: left;
+}
+
+.ta-c {
+    text-align: center;
+}
+
+.ml-a {
+    margin-left: auto;
+}
+
+//AlignSelf
+.as-center {
+    align-self: center;
+}
+
+.as-start {
+    align-self: flex-start;
+}
+
+.ai-center {
+    align-items: center;
+}
+
+.ai-start {
+    align-items: start!important;
+}
+
+//Position
+.pos-ab {
+    position: absolute;
+}
+
+//Font
+$baseSp: 0.0624;
+$spaceamounts1: ( 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35);
+@each $space1 in $spaceamounts1 {
+    .fts-#{$space1} {
+        font-size: #{$space1*$baseSp}em !important;
+    }
+}
+
+//dasdas
+.dis-blk {
+    display: block!important;
+}
+
+.position-buttom {
+    bottom: 0px;
+    position: absolute;
+    width: 100%;
+}
+
+//scroll-verticall
+.scroll-v {
+    overflow-y: scroll;
+}
+
+ion-toast.info {
+    font-weight: 14px;
+    --border-radius: 20px;
+    --border-width: 5px;
+    --border-style: double;
+    --border-color: var(--ion-color-info);
+}
+
+.toast-wrapper {
+    padding-bottom: 53px;
+    margin-left: -10px;
+    margin-right: -9px;
+}
+
+.testing {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+.testing2 {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 50%;
+    padding-bottom: 35%;
+}
+
+@media (max-height: 568px) {
+    .testing2 {
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 50%;
+        padding-bottom: 30%;
+    }
+}
+
+@media (min-height: 569px) and (max-height: 640px) {
+    .testing2 {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 50%;
+        padding-bottom: 40%;
+    }
+}
+
+@media (min-height: 641px) and (max-height: 736px) {
+    .testing2 {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 50%;
+        padding-bottom: 50%;
+    }
+}
+
+@media (min-height: 737px) and (max-height: 812px) {
+    .testing2 {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 50%;
+        padding-bottom: 50%;
+    }
+}
+
+.hr-big {
+    height: 1px;
+    background-color: #f1f1f5;
+    margin: 0px;
+}
+
+.sc-ion-popover-ios-h {
+    --width: 200px;
+    --max-height: 90%;
+    --box-shadow: none;
+    --box-shadow: 0 -1px 4px 0 rgba(72, 72, 72, 0.3);
+}

@@ -3,11 +3,22 @@
 </mat-toolbar>
 <mat-toolbar class="toolbar nav">
     <p class="m-0"> <span>AVIwatcher</span></p>
-    <div class="button-container">
+    <div class="button-container ml-16 mr-16">
         <button mat-button color="primary">RESTAURAR</button>
     </div>
-    <div class="example-section">
-        <mat-checkbox class="example-margin">Checked</mat-checkbox>
-        <mat-checkbox class="example-margin">Indeterminate</mat-checkbox>
+    <div class="section-checkbox">
+        <mat-checkbox class="example-margin ml-16 mr-12">WEB</mat-checkbox>
+        <mat-checkbox class="example-margin ">APP</mat-checkbox>
+    </div>
+    <div class="flex-class">
+        <p>Ambiente:</p>
+        <mat-form-field appearance="fill">
+            <mat-label>Ambiente</mat-label>
+            <mat-select (selectionChange)="capturar($event)">
+                <mat-option *ngFor="let items of ambientes" [value]="items">
+                    {{items}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
     </div>
 </mat-toolbar>

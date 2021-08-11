@@ -6,13 +6,14 @@ import { EnvironmentManagerService } from '@app/auth/services/environment-manage
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  ambientes: string[] = ['DEV', 'UAT', 'PROD'];
   constructor(private environmentManager: EnvironmentManagerService) { }
 
   ngOnInit(): void {
     console.warn('environmentManager');
-    
-// environmentManager.currentEnvironemnt.configFile.
+    // environmentManager.currentEnvironemnt.configFile.
   }
-
+  capturar(event:any){
+console.warn('event',event.value)
+  }
 }
