@@ -63,7 +63,7 @@
 <div style="display: flex;height: calc( 100vh - 137.100px); ">
     <div style="background: #F3F9FD; width: 23%;"> codigo a mostrar</div>
     <div style="width: 77%; ">
-        <app-chat></app-chat>
+        <app-chat (emitChangeText)="changeText($event)"></app-chat>
     </div>
 
 </div>

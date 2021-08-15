@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Ambiente } from '@app/auth/models/permission';
-import { EnvironmentManagerService } from '@app/auth/services/environment-manager.service';
+import { Ambiente } from '@app/commons/models/permission';
+import { ConversationService } from '@app/commons/services/conversations.service';
+import { EnvironmentManagerService } from '@app/commons/services/environment-manager.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -15,7 +16,8 @@ export class HomeComponent implements OnInit {
   public environmentManagerHome: EnvironmentManagerService;
   constructor(public environmentManager: EnvironmentManagerService,
     private formBuilder: FormBuilder,
-    private http: HttpClient) {
+    private http: HttpClient,
+    private conversationService:ConversationService) {
     this.environmentManagerHome = environmentManager;
     this.formNav = this.formBuilder.group({
       app: new FormControl(''),
@@ -49,4 +51,18 @@ export class HomeComponent implements OnInit {
     });
   }
   
+  public changeText(value:any) {
+    console.warn('SEND',value)
+    let text ={
+      text:'HOla'
+    }
+    this.conversationService.chat(text).subscribe(
+      data => {console.warn(data);
+      
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
 }
