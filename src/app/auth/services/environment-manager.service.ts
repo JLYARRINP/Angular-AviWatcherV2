@@ -14,18 +14,20 @@ export class EnvironmentManagerService {
   changeEnvironment(environment: string){
 
     switch(environment){
-      case "dev":
+      case "DEV":
        this.currentEnvironemnt = envDev;
        break;
-       case "uat":
+       case "UAT":
        this.currentEnvironemnt = envUat;
        break;
-       case "prd":
+       case "STG":
         this.currentEnvironemnt = envProd;
         break;
       default:
         this.currentEnvironemnt = envDev;
         break;
     }
+    console.warn('this.currentEnvironemnt....',this.currentEnvironemnt);
+    
   }
 }

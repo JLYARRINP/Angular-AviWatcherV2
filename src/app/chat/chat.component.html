@@ -1,0 +1,23 @@
+<div class="chatlist" #chatlist>
+    <form>
+        <div class="msg_card_body">
+        </div>
+
+        <div class="flex-class content-msj pt-8 pb-8 pl-16 pr-16">
+            <mat-icon class="mr-16">tag_faces</mat-icon>
+            <mat-icon class="mr-16">attach_file</mat-icon>
+            <div class="input-text">
+                <input class="input-num pt-8 pb-8" matInput placeholder="Escribe un mensaje">
+            </div>
+            <div>
+                <button id="btnEnviarFormulario" class="btn btn-send" (click)="sendFormulario()">
+          <mat-icon>send</mat-icon>
+        </button>
+            </div>
+            <div class="button-container ml-16">
+                <button mat-button color="primary">EXPORTAR</button>
+            </div>
+        </div>
+
+    </form>
+</div>

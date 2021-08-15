@@ -1,0 +1,50 @@
+@import '../../assets/scss/layout/utils';
+.content-msj {
+    position: absolute;
+    bottom: 0;
+    box-sizing: border-box;
+    width: 77%;
+    background: #f0f0f0;
+    align-items: center;
+    mat-icon {
+        color: #A7A7A7;
+    }
+}
+
+.chatlist {
+    background-image: url("./../../assets/img/fondo-chat.png");
+    background-size: contain;
+    background-position: center center;
+    background-attachment: fixed;
+    height: 100%;
+}
+
+.btn-send {
+    border: none;
+    color: #A7A7A7;
+    text-align: center;
+    display: flex;
+}
+
+.button-container {
+    button {
+        background: #0033A1;
+        border-radius: 4px;
+        border: 2px solid #0033A1;
+        height: 32px;
+        color: white;
+        font-size: 12px;
+        align-items: center;
+        display: flex;
+    }
+}
+
+.input-text {
+    width: 72%;
+    text-align: start;
+    align-items: center;
+    display: flex;
+    background: white;
+    padding: 0 1rem;
+    border-radius: 20px;
+}

@@ -4,7 +4,7 @@
     a {
         display: flex;
         img {
-            width: 10rem;
+            max-width: 8rem;
             height: auto;
         }
     }
@@ -12,6 +12,10 @@
 
 .nav {
     background: #F3F9FD;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    align-items: center;
     p {
         font-family: Roboto;
         font-style: normal;
@@ -43,4 +47,44 @@
         align-items: center;
         color: #000000;
     }
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: .7rem 0;
+    border-top: 0;
+    box-sizing: border-box;
+    display: flex;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper {
+    margin: 0;
+    padding-bottom: 0;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+    transform: translateY(15%) !important;
+}
+
+::ng-deep .mat-select-trigger {
+    height: auto;
+}
+
+.content-input {
+    input {
+        height: 32px;
+        border: 1px solid #D9DADB;
+        box-sizing: border-box;
+    }
+    .input-id {
+        max-width: 35px;
+        border-radius: 4px 0 0 4px;
+    }
+    .input-num {
+        max-width: 110px;
+        border-radius: 0 4px 4px 0;
+    }
+}
+
+.example-full-width {
+    max-width: 2.5rem;
 }
