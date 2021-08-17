@@ -1,7 +1,7 @@
-{
-    "name": "DEV",
-    "url": "https://eu2-ibk-apm-dev-ext-001.azure-api.net/eva/conversations/",
-    "subscriptionKey": "688d57cc3d7e47e2a1e9b5b0393c84db",
+export const config  = {
+    "name": "UAT",
+    "url": "https://apis.uat.interbank.pe/evabroker",
+    "subscriptionKey": "c9664a560c184e8cb857e5d2a7efabc4",
     "apiKey": "20dcb8cb-4603-4efa-a78a-8bb4f83ce46a",
     "projects": [{
             "name": "AVI RETAIL",

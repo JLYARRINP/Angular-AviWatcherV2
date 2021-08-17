@@ -1,6 +1,6 @@
-{
+export const config  = {
     "name": "STG",
-    "url": "https://eu2-ibk-apm-stg-ext-001.azure-api.net/evabroker/conversations/",
+    "url": "https://eu2-ibk-apm-stg-ext-001.azure-api.net/evabroker",
     "subscriptionKey": "534cbfdafd7b438ba07cbaf250ff094d",
     "apiKey": "20dcb8cb-4603-4efa-a78a-8bb4f83ce46a",
     "projects": [{

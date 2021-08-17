@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ConversationService } from '@app/commons/services/conversations.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-chat',
@@ -7,8 +7,13 @@ import { ConversationService } from '@app/commons/services/conversations.service
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent implements OnInit {
+  public form: FormGroup;
   @Output() emitChangeText = new EventEmitter<Object>();
-  constructor(private conversationService:ConversationService) { }
+  constructor(private formBuilder: FormBuilder,) {
+    this.form = this.formBuilder.group({
+      textInput: new FormControl('', [Validators.required]),
+    });
+   }
 
   ngOnInit(): void {
   }
@@ -17,7 +22,8 @@ export class ChatComponent implements OnInit {
 
   }
   sendFormulario(value:any) {
-    console.warn('SEND');
+
+    console.warn('SEND',this.form, value );
     this.emitChangeText.emit(value);
   }
 }

@@ -1,5 +1,5 @@
 <div class="chatlist" #chatlist>
-    <form>
+    <form [formGroup]="form">
         <div class="msg_card_body">
         </div>
 
@@ -10,7 +10,7 @@
                 <input class="input-num pt-8 pb-8" matInput placeholder="Escribe un mensaje">
             </div>
             <div>
-                <button id="btnEnviarFormulario" class="btn btn-send" (click)="sendFormulario($event)">
+                <button id="btnEnviarFormulario" class="btn " (click)="sendFormulario($event)" [ngClass]="form.invalid ? 'btn-send' : 'btn-send-text'" formControlName="textInput">
           <mat-icon>send</mat-icon>
         </button>
             </div>

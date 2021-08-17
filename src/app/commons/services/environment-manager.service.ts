@@ -15,7 +15,7 @@ export class EnvironmentManagerService {
 
     switch(environment){
       case "DEV":
-       this.currentEnvironemnt = envDev;
+       this.currentEnvironemnt = envDev
        break;
        case "UAT":
        this.currentEnvironemnt = envUat;

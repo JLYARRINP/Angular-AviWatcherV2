@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Ambiente } from '@app/commons/models/permission';
 import { ConversationService } from '@app/commons/services/conversations.service';
 import { EnvironmentManagerService } from '@app/commons/services/environment-manager.service';
 @Component({
@@ -37,18 +36,8 @@ export class HomeComponent implements OnInit {
   }
   readData() {
     this.environmentManagerHome.changeEnvironment(this.formNav.value.ambiente);
-    const jsonFile = this.environmentManagerHome.currentEnvironemnt.configFile;
-    console.warn(jsonFile,this.formNav.value.ambiente);
-    return new Promise<void>((resolve, reject) => {
-      this.http.get(jsonFile).toPromise().then((response: Ambiente) => {
-        this.data = <Ambiente>response.projects;
-        console.warn('data.....', this.data);
-
-        resolve();
-      }).catch((response: Ambiente) => {
-        reject(`Could not load file '${jsonFile}': ${JSON.stringify(response)}`);
-      });
-    });
+    this.data = this.environmentManagerHome.currentEnvironemnt.configFile.projects;
+    console.warn(this.data,this.formNav.value.ambiente);
   }
   
   public changeText(value:any) {

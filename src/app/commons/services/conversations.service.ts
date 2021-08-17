@@ -11,6 +11,6 @@ export class ConversationService {
   constructor( private httpClient: HttpClient,) {}
 
     public chat(params:any): Observable<any> {
-      return this.httpClient.post<any>(`${environment.apiChat}`,params);
+      return this.httpClient.post<any>(`${environment.configFile.url}/conversations/`,params);
     }
 }
