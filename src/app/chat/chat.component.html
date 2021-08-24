@@ -3,11 +3,11 @@
         <div class="msg_card_body">
         </div>
 
-        <div class="flex-class content-msj pt-8 pb-8 pl-16 pr-16">
+        <footer class="flex-class content-msj pt-8 pb-8 pl-16 pr-16">
             <mat-icon class="mr-16">tag_faces</mat-icon>
             <mat-icon class="mr-16">attach_file</mat-icon>
             <div class="input-text">
-                <input class="input-num pt-8 pb-8" matInput placeholder="Escribe un mensaje">
+                <input class="input-num pt-8 pb-8" matInput placeholder="Escribe un mensaje" autocomplete="off">
             </div>
             <div>
                 <button id="btnEnviarFormulario" class="btn " (click)="sendFormulario($event)" [ngClass]="form.invalid ? 'btn-send' : 'btn-send-text'" formControlName="textInput">
@@ -17,7 +17,7 @@
             <div class="button-container ml-16">
                 <button mat-button color="primary">EXPORTAR</button>
             </div>
-        </div>
+        </footer>
 
     </form>
 </div>

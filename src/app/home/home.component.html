@@ -1,27 +1,33 @@
-<div style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); position: relative;">
-    <mat-toolbar class="toolbar content-logo">
-        <a> <img class="logo" src="assets/img/logo-Interbank.svg" alt=""></a>
-    </mat-toolbar>
-    <div class="toolbar nav pl-16 pr-16 row">
-        <div class="col-2 flex-class ai-center ">
-            <p class="m-0"> <span>AVIwatcher</span></p>
-            <div class="button-container ml-16 mr-16">
-                <button mat-button color="primary">RESTAURAR</button>
+<div class="ng-content">
+    <div class="section-1">
+        <div class="content-nav">
+            <div class="toolbar nav pl-16">
+                <div class="flex-class ai-center">
+                    <p class="m-0"> <span>AVIwatcher</span></p>
+                    <div class="button-container ml-16 mr-16">
+                        <button mat-button color="primary">RESTAURAR</button>
+                    </div>
+                </div>
             </div>
-
         </div>
-        <div>
-            <form id="contactForm" [formGroup]="formNav" class="col-10 flex-class ai-center ">
-                <div class="section-checkbox">
+        <div class="content-json p-16 ">
+            <ngx-json-view [data]="v"></ngx-json-view>
+        </div>
+
+    </div>
+    <div class="section-2">
+        <div class="content-form">
+
+            <form id="contactForm" [formGroup]="formNav" class="col-10 flex-class ai-center toolbar nav  pr-16">
+                <div class="section-checkbox flex-class">
                     <mat-checkbox class="example-margin ml-16 mr-12" formControlName="web">WEB</mat-checkbox>
                     <mat-checkbox class="example-margin " formControlName="app">APP</mat-checkbox>
                 </div>
                 <div class="flex-class m-16 ai-center">
-
-                    <div class="mr-8" style="text-align: center; display: flex">
-                        <mat-label style="font-size: 14px; ;">Ambiente :</mat-label>
+                    <div class="mr-8 label-env">
+                        <mat-label>Ambiente :</mat-label>
                     </div>
-                    <mat-form-field appearance="outline" style="width: 110px;">
+                    <mat-form-field appearance="outline" style="width: 120px;">
                         <mat-select (selectionChange)="capturar($event)" placeholder="seleccionar" formControlName="ambiente">
                             <mat-option *ngFor="let items of ambientes" [value]="items" style="font-size: 14px;">
                                 {{items}}
@@ -31,10 +37,10 @@
                 </div>
                 <div class="flex-class m-16 ai-center">
 
-                    <div class="mr-8" style="text-align: center; display: flex">
+                    <div class="mr-8" style="text-align: center; display: flex  ;   white-space: nowrap;">
                         <mat-label style="font-size: 14px; ;">Bot :</mat-label>
                     </div>
-                    <mat-form-field appearance="outline" style="width: 110px;">
+                    <mat-form-field appearance="outline" style="width: 120px;">
                         <mat-select (selectionChange)="capturar($event)" placeholder="seleccionar">
                             <mat-option *ngFor="let items of data" [value]="items" style="font-size: 14px;">
                                 {{items.name}}
@@ -44,12 +50,12 @@
                 </div>
                 <div class="flex-class m-16 ai-center">
 
-                    <div class="mr-8" style="text-align: center; display: flex">
+                    <div class="mr-8" style="text-align: center; display: flex ;    white-space: nowrap;">
                         <mat-label style="font-size: 14px; ;">Identificador :</mat-label>
                     </div>
                     <div class="flex-class content-input">
-                        <input class="input-id" type="tel" matInput placeholder="+51">
-                        <input class="input-num" type="tel" matInput placeholder="Ingresa número">
+                        <input class="input-id" type="tel" matInput placeholder="+51" autocomplete="off">
+                        <input class="input-num" type="tel" matInput placeholder="Ingresa número" autocomplete="off">
                     </div>
 
                 </div>
@@ -58,12 +64,8 @@
                 </div>
             </form>
         </div>
+        <div style=" height: calc(100vw - 73px);">
+            <app-chat (emitChangeText)="changeText($event)"></app-chat>
+        </div>
     </div>
-</div>
-<div style="display: flex;height: calc( 100vh - 137.100px); ">
-    <div style="background: #F3F9FD; width: 23%;"> codigo a mostrar</div>
-    <div style="width: 77%; ">
-        <app-chat (emitChangeText)="changeText($event)"></app-chat>
-    </div>
-
 </div>

@@ -1,14 +1,17 @@
 @import '../../assets/scss/layout/utils';
 .content-msj {
-    position: absolute;
     bottom: 0;
     box-sizing: border-box;
-    width: 77%;
+    width: 100%;
     background: #f0f0f0;
     align-items: center;
     mat-icon {
         color: #A7A7A7;
     }
+}
+
+.msg_card_body {
+    height: calc(100vh - 124px);
 }
 
 .chatlist {

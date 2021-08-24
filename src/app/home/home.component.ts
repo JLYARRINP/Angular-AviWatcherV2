@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   ambientes: string[] = ['DEV', 'UAT', 'STG'];
   public formNav: FormGroup;
   public data: any;
+  public v: any;
   public environmentManagerHome: EnvironmentManagerService;
   constructor(public environmentManager: EnvironmentManagerService,
     private formBuilder: FormBuilder,
@@ -28,7 +29,27 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.environmentManagerHome.changeEnvironment('DEV')
+    this.environmentManagerHome.changeEnvironment('DEV');
+    this.v =[
+      {
+        "id": 1,
+        "firstName": "Elite",
+        "lastName": "Corner",
+        "email": "a@a.com"
+      },
+      {
+        "id": 2,
+        "firstName": "Json",
+        "lastName": "Pipe",
+        "email": "a@a.com"
+      },
+      {
+        "id": 3,
+        "firstName": "Angular",
+        "lastName": "Material",
+        "email": "a@a.com"
+      }
+    ]
   }
   capturar(event: any) {
     console.warn('event', event.value)

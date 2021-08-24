@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
+import { NgxJsonViewModule } from 'ng-json-view';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import {MatIconModule} from '@angular/material/icon';
     ReactiveFormsModule,
     HttpClientModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    NgxJsonViewModule
   ],
   providers: [],
   bootstrap: [AppComponent]
