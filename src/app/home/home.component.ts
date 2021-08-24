@@ -30,26 +30,91 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.environmentManagerHome.changeEnvironment('DEV');
-    this.v =[
-      {
-        "id": 1,
-        "firstName": "Elite",
-        "lastName": "Corner",
-        "email": "a@a.com"
-      },
-      {
-        "id": 2,
-        "firstName": "Json",
-        "lastName": "Pipe",
-        "email": "a@a.com"
-      },
-      {
-        "id": 3,
-        "firstName": "Angular",
-        "lastName": "Material",
-        "email": "a@a.com"
+    this.v ={
+      "text": "dsdsd",
+      "sessionCode": "862de5b5-5627-4e14-bcf3-f6c5ca70f964",
+      "answers": [
+          {
+              "code": "SLDO_001",
+              "title": "SLDO_001",
+              "text": "¡Hola! DEV",
+              "confidence": 1,
+              "technicalText": "",
+              "options": null,
+              "flow": "SALUDOS"
+          },
+          {
+              "code": "BVND_001",
+              "title": "BVND_001",
+              "text": "Soy Avi, tu asistente virtual 🤖 y te ayudaré con tus consultas sobre Interbank",
+              "confidence": 1,
+              "technicalText": "",
+              "options": null,
+              "flow": "BIENVENIDA"
+          },
+          {
+              "code": "BVND_002",
+              "title": "BVND_002",
+              "text": "Para poder atenderte, necesito que leas nuestros *Términos y condiciones* 👉 https://interbank.pe/avi-whatsapp/politicas-de-privacidad",
+              "confidence": 1,
+              "technicalText": "",
+              "options": null,
+              "flow": "BIENVENIDA"
+          },
+          {
+              "code": "BVND_003",
+              "title": "BVND_003",
+              "text": "Si estás de acuerdo, escribe *acepto*",
+              "confidence": 1,
+              "technicalText": "",
+              "options": null,
+              "flow": "BIENVENIDA"
+          }
+      ],
+      "context": {
+          "bono": false,
+          "firstTime": false,
+          "input": "dsdsd",
+          "tunki": false,
+          "enrollActive": false,
+          "array_horarios": {
+              "0": {
+                  "inicio": "09:00:00",
+                  "fin": "18:00:00"
+              },
+              "1": {
+                  "inicio": "08:00:00",
+                  "fin": "20:00:00"
+              },
+              "2": {
+                  "inicio": "08:00:00",
+                  "fin": "20:00:00"
+              },
+              "3": {
+                  "inicio": "08:00:00",
+                  "fin": "20:00:00"
+              },
+              "4": {
+                  "inicio": "00:00:00",
+                  "fin": "20:00:00"
+              },
+              "5": {
+                  "inicio": "08:00:00",
+                  "fin": "20:00:00"
+              },
+              "6": {
+                  "inicio": "09:00:00",
+                  "fin": "18:00:00"
+              }
+          },
+          "enrollExist": false,
+          "acceptedTerms": false,
+          "queryPending": null,
+          "loadResult": 1,
+          "flag_horario": false,
+          "loading": true
       }
-    ]
+  }
   }
   capturar(event: any) {
     console.warn('event', event.value)
@@ -59,6 +124,9 @@ export class HomeComponent implements OnInit {
     this.environmentManagerHome.changeEnvironment(this.formNav.value.ambiente);
     this.data = this.environmentManagerHome.currentEnvironemnt.configFile.projects;
     console.warn(this.data,this.formNav.value.ambiente);
+  }
+  get code () {
+    return JSON.stringify(this.v, null, 2);
   }
   
   public changeText(value:any) {

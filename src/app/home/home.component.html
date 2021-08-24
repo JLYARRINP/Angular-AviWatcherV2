@@ -10,8 +10,8 @@
                 </div>
             </div>
         </div>
-        <div class="content-json p-16 ">
-            <ngx-json-view [data]="v"></ngx-json-view>
+        <div class="content-json p-16 pb-16">
+            <ngx-json-viewer [json]="v" [expanded]="true" [depth]="3"></ngx-json-viewer>
         </div>
 
     </div>
@@ -20,14 +20,14 @@
 
             <form id="contactForm" [formGroup]="formNav" class="col-10 flex-class ai-center toolbar nav  pr-16">
                 <div class="section-checkbox flex-class">
-                    <mat-checkbox class="example-margin ml-16 mr-12" formControlName="web">WEB</mat-checkbox>
-                    <mat-checkbox class="example-margin " formControlName="app">APP</mat-checkbox>
+                    <mat-checkbox class=" ml-16 mr-12" formControlName="web">WEB</mat-checkbox>
+                    <mat-checkbox class=" " formControlName="app">APP</mat-checkbox>
                 </div>
                 <div class="flex-class m-16 ai-center">
                     <div class="mr-8 label-env">
                         <mat-label>Ambiente :</mat-label>
                     </div>
-                    <mat-form-field appearance="outline" style="width: 120px;">
+                    <mat-form-field appearance="outline" class="env-select">
                         <mat-select (selectionChange)="capturar($event)" placeholder="seleccionar" formControlName="ambiente">
                             <mat-option *ngFor="let items of ambientes" [value]="items" style="font-size: 14px;">
                                 {{items}}
@@ -40,7 +40,7 @@
                     <div class="mr-8" style="text-align: center; display: flex  ;   white-space: nowrap;">
                         <mat-label style="font-size: 14px; ;">Bot :</mat-label>
                     </div>
-                    <mat-form-field appearance="outline" style="width: 120px;">
+                    <mat-form-field appearance="outline" class="env-select">
                         <mat-select (selectionChange)="capturar($event)" placeholder="seleccionar">
                             <mat-option *ngFor="let items of data" [value]="items" style="font-size: 14px;">
                                 {{items.name}}

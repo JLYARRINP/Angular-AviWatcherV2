@@ -10,7 +10,7 @@
         width: 250px;
         .content-json {
             background: transparent;
-            height: 100%;
+            height: calc(100% - 105px);
         }
         .content-nav {
             box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
@@ -29,6 +29,9 @@
                 mat-label {
                     font-size: 14px;
                 }
+            }
+            .env-select {
+                width: 120px;
             }
         }
     }
