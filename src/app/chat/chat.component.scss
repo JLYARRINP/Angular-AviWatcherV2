@@ -5,8 +5,13 @@
     width: 100%;
     background: #f0f0f0;
     align-items: center;
-    mat-icon {
+    position: relative;
+    .btn-send,
+    .icon {
         color: #A7A7A7;
+    }
+    .btn-send-text {
+        color: #00BB31;
     }
 }
 
@@ -57,4 +62,62 @@
     background: white;
     padding: 0 1rem;
     border-radius: 20px;
+}
+
+.mensaje-user {
+    text-align: start;
+    padding: 10px;
+    background: #37CB73;
+    border-radius: 5px;
+    max-width: 75%;
+}
+
+.mensaje-bot {
+    text-align: start;
+    padding: 10px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    max-width: 75%;
+}
+
+.mensaje-response-bot {
+    text-align: center;
+    padding: 5px;
+    color: #00bb31;
+    border-radius: 2px;
+    max-width: 100%;
+}
+
+.contentWelcome {
+    width: 50%;
+}
+
+.header-titles {
+    display: grid;
+    grid-template-columns: auto 10% 10% 10% 10% 10%;
+    background: #CCD7ED;
+    color: #0133a1;
+    padding: .5rem 1rem;
+}
+
+.content-response {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+}
+
+.variables-response {
+    background: #CDF2DC;
+    display: grid;
+    border-radius: 5px;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+}
+
+.body {
+    height: calc(100% - 60px);
+    overflow: scroll;
+}
+
+.content {
+    height: 100%;
 }

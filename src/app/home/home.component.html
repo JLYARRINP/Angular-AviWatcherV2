@@ -10,8 +10,8 @@
                 </div>
             </div>
         </div>
-        <div class="content-json p-16 pb-16">
-            <ngx-json-viewer [json]="v" [expanded]="true" [depth]="3"></ngx-json-viewer>
+        <div *ngIf="json" class="content-json p-16 pb-16" #scrollJson [scrollTop]="scrollJson.scrollHeight">
+            <ngx-json-viewer [json]="json" [expanded]="true" [depth]="3"></ngx-json-viewer>
         </div>
 
     </div>
@@ -65,7 +65,7 @@
             </form>
         </div>
         <div style=" height: calc(100vw - 73px);">
-            <app-chat (emitChangeText)="changeText($event)"></app-chat>
+            <app-chat (emitChangeText)="changeText($event)" [dataResponseJson]='dataResponseJson'></app-chat>
         </div>
     </div>
 </div>

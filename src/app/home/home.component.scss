@@ -11,6 +11,7 @@
         .content-json {
             background: transparent;
             height: calc(100% - 105px);
+            overflow: scroll;
         }
         .content-nav {
             box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
