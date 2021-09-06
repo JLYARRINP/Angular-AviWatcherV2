@@ -10,8 +10,9 @@
                 </div>
             </div>
         </div>
-        <div *ngIf="json" class="content-json p-16 pb-16" #scrollJson [scrollTop]="scrollJson.scrollHeight">
-            <ngx-json-viewer [json]="json" [expanded]="true" [depth]="3"></ngx-json-viewer>
+        <div *ngIf="json" class="content-json p-16 pb-16">
+            <ngx-json-viewer [json]="json" [expanded]="true" #jsonFormater></ngx-json-viewer>
+
         </div>
 
     </div>

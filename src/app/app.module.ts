@@ -34,7 +34,8 @@ import { NgxJsonViewerModule } from 'ngx-json-viewer';
     HttpClientModule,
     MatInputModule,
     MatIconModule,
-    NgxJsonViewerModule
+    NgxJsonViewerModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
