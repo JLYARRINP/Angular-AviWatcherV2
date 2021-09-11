@@ -1,6 +1,7 @@
 @import '../../assets/scss/layout/utils';
+@import '../../assets/scss/colors';
+@import '../../assets/scss/buttons';
 .ng-content {
-    display: flex;
     height: 100vh;
     width: 100vw;
     overflow-y: hidden;
@@ -8,114 +9,74 @@
         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
         position: relative;
         width: 250px;
+        .content-nav {
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+        }
+        .nav-section1 {
+            background: $quinary-grey-dark;
+            height: 73px;
+            flex-wrap: nowrap;
+            p {
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: 500;
+                color: $primary-green;
+            }
+        }
+        .loading {
+            height: calc(100% - 105px);
+            img {
+                animation: spin 4s linear infinite;
+            }
+            p {
+                color: $primary-green;
+            }
+        }
         .content-json {
             background: transparent;
             height: calc(100% - 105px);
             overflow: scroll;
         }
-        .content-nav {
-            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-        }
     }
     .section-2 {
-        border-left: 1px solid #D9DADB;
+        border-left: 1px solid $quaternary-grey-dark;
         height: 73px;
         .content-form {
             box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
             position: relative;
-            .label-env {
-                text-align: center;
-                display: flex;
-                white-space: nowrap;
-                mat-label {
-                    font-size: 14px;
+            .nav-section2 {
+                background: $quinary-grey-dark;
+                height: 73px;
+                flex-wrap: nowrap;
+                .section-checkbox {
+                    font-family: Roboto;
+                    font-style: normal;
+                    font-weight: normal;
+                    color: $primary-grey-dark;
                 }
             }
             .env-select {
                 width: 120px;
             }
+            .content-input {
+                input {
+                    height: 32px;
+                    border: 1px solid $quaternary-grey-dark;
+                    box-sizing: border-box;
+                }
+                .input-id {
+                    min-width: 35px;
+                    max-width: 40px;
+                    border-radius: 4px 0 0 4px;
+                }
+                .input-num {
+                    min-width: 110px;
+                    border-radius: 0 4px 4px 0;
+                }
+            }
+        }
+        .content-chat {
+            height: calc(100vw - 73px);
         }
     }
-}
-
-.nav {
-    background: #F3F9FD;
-    height: 73px;
-    display: flex;
-    flex-wrap: nowrap;
-    text-align: center;
-    align-items: center;
-    justify-content: space-between;
-    p {
-        font-family: Roboto;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 20px;
-        line-height: 25px;
-        display: flex;
-        align-items: center;
-        color: #00BB31;
-        margin: 0;
-    }
-    .button-container {
-        button {
-            background: #0033A1;
-            border-radius: 4px;
-            border: 2px solid #0033A1;
-            height: 32px;
-            color: white;
-            font-size: 12px;
-            align-items: center;
-            display: flex;
-        }
-    }
-    .section-checkbox {
-        font-family: Roboto;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 10px;
-        align-items: center;
-        color: #000000;
-    }
-}
-
-::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
-    padding: .7rem 0;
-    border-top: 0;
-    box-sizing: border-box;
-    display: flex;
-}
-
-::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper {
-    margin: 0;
-    padding-bottom: 0;
-}
-
-::ng-deep .mat-form-field-appearance-outline .mat-select-arrow-wrapper {
-    transform: translateY(15%) !important;
-}
-
-::ng-deep .mat-select-trigger {
-    height: auto;
-}
-
-.content-input {
-    input {
-        height: 32px;
-        border: 1px solid #D9DADB;
-        box-sizing: border-box;
-    }
-    .input-id {
-        min-width: 35px;
-        max-width: 40px;
-        border-radius: 4px 0 0 4px;
-    }
-    .input-num {
-        min-width: 110px;
-        border-radius: 0 4px 4px 0;
-    }
-}
-
-.example-full-width {
-    max-width: 2.5rem;
 }

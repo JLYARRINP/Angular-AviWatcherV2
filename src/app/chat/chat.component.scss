@@ -1,123 +1,97 @@
 @import '../../assets/scss/layout/utils';
-.content-msj {
-    bottom: 0;
-    box-sizing: border-box;
-    width: 100%;
-    background: #f0f0f0;
-    align-items: center;
-    position: relative;
-    .btn-send,
-    .icon {
-        color: #A7A7A7;
-    }
-    .btn-send-text {
-        color: #00BB31;
-    }
-}
-
-.msg_card_body {
-    height: calc(100vh - 124px);
-}
-
+@import '../../assets/scss/colors';
+@import '../../assets/scss/buttons';
 .chatlist {
     background-image: url("./../../assets/img/fondo-chat.png");
     background-size: contain;
     background-position: center center;
     background-attachment: fixed;
-    height: 100%;
-}
-
-.btn-send {
-    border: none;
-    color: #A7A7A7;
-    text-align: center;
-    display: flex;
-}
-
-.btn-send-text {
-    border: none;
-    color: #00BB31;
-    text-align: center;
-    display: flex;
-}
-
-.button-container {
-    button {
-        background: #0033A1;
-        border-radius: 4px;
-        border: 2px solid #0033A1;
-        height: 32px;
-        color: white;
-        font-size: 12px;
-        align-items: center;
-        display: flex;
+    .msg_card_body {
+        height: calc(100vh - 124px);
+        .header-titles {
+            display: grid;
+            grid-template-columns: auto 10% 10% 10% 10% 10%;
+            background: $quinary-blue;
+            color: $primary-blue;
+            padding: .5rem 1rem;
+        }
+        .body {
+            height: calc(100% - 60px);
+            overflow: scroll;
+            .contentWelcome {
+                width: 50%;
+                .mensaje-user {
+                    background: $secondary-green;
+                    border-radius: 5px;
+                    max-width: 75%;
+                }
+            }
+            .content-response {
+                display: grid;
+                grid-template-columns: 50% 50%;
+                align-items: center;
+                .mensaje-bot {
+                    background: $primary-white;
+                    border-radius: 5px;
+                    max-width: 75%;
+                }
+                .variables-response {
+                    background: $quinary-green;
+                    display: grid;
+                    border-radius: 5px;
+                    grid-template-columns: 20% 20% 20% 20% 20%;
+                    .mensaje-response-bot {
+                        color: $primary-green;
+                        border-radius: 2px;
+                        max-width: 100%;
+                    }
+                }
+            }
+            .loading {
+                position: relative;
+                img {
+                    animation: spin 4s linear infinite;
+                }
+                p {
+                    color: $primary-green;
+                }
+            }
+        }
+    }
+    .content-msj {
+        bottom: 0;
+        box-sizing: border-box;
+        background: $quinary-grey-dark;
+        position: relative;
+        .btn-send,
+        .icon {
+            color: $tertiary-grey-dark;
+        }
+        .btn-send-text {
+            color: $primary-green;
+        }
+        .input-text {
+            width: 72%;
+            background: $primary-white;
+            padding: 0 1rem;
+            border-radius: 20px;
+        }
     }
 }
 
-.input-text {
-    width: 72%;
-    text-align: start;
-    align-items: center;
-    display: flex;
-    background: white;
-    padding: 0 1rem;
-    border-radius: 20px;
-}
-
-.mensaje-user {
-    text-align: start;
-    padding: 10px;
-    background: #37CB73;
-    border-radius: 5px;
-    max-width: 75%;
-}
-
-.mensaje-bot {
-    text-align: start;
-    padding: 10px;
-    background: #FFFFFF;
-    border-radius: 5px;
-    max-width: 75%;
-}
-
-.mensaje-response-bot {
+.btn-send,
+.btn-send-text {
+    border: none;
+    color: $tertiary-grey-dark;
     text-align: center;
-    padding: 5px;
-    color: #00bb31;
-    border-radius: 2px;
-    max-width: 100%;
+    display: flex;
 }
 
-.contentWelcome {
-    width: 50%;
+.btn-send {
+    color: $tertiary-grey-dark;
+    ;
 }
 
-.header-titles {
-    display: grid;
-    grid-template-columns: auto 10% 10% 10% 10% 10%;
-    background: #CCD7ED;
-    color: #0133a1;
-    padding: .5rem 1rem;
-}
-
-.content-response {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    align-items: center;
-}
-
-.variables-response {
-    background: #CDF2DC;
-    display: grid;
-    border-radius: 5px;
-    grid-template-columns: 20% 20% 20% 20% 20%;
-}
-
-.body {
-    height: calc(100% - 60px);
-    overflow: scroll;
-}
-
-.content {
-    height: 100%;
+.btn-send-text {
+    color: $primary-green;
 }

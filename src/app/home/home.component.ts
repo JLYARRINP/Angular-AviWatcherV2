@@ -13,11 +13,13 @@ export class HomeComponent implements OnInit {
   jsonFormater!: ElementRef;
 
   ambientes: string[] = ['DEV', 'UAT', 'STG'];
+  public resultado : any;
   public formNav: FormGroup;
   public data: any;
   public dataResponseJson: any = [];
   public json: any;
   public sessionCode = '';
+  public showLoaderInit : boolean = false;
   public environmentManagerHome: EnvironmentManagerService;
   constructor(public environmentManager: EnvironmentManagerService,
     private formBuilder: FormBuilder,
@@ -35,6 +37,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.environmentManagerHome.changeEnvironment('DEV');
+    this.showLoaderInit = false;
   }
   capturar(event: any) {
     console.warn('event', event.value)
@@ -50,22 +53,24 @@ export class HomeComponent implements OnInit {
   }
 
   public changeText(value: any) {
+    this.showLoaderInit = true;
     console.warn('SEND', value)
     let text = {
       text: value
     }
     this.conversationService.chat(text, this.sessionCode).subscribe(
       data => {
-        console.warn(data);
+        this.showLoaderInit = false;
         this.json = data;
         this.dataResponseJson.push(data);
         this.sessionCode = data.sessionCode;
         setTimeout(() => {
           this.jsonFormater.nativeElement.children[0].scrollTop = this.jsonFormater.nativeElement.children[0].scrollHeight;
-          console.warn('scroll native....', this.jsonFormater, this.jsonFormater.nativeElement.children[0].scrollHeight);
         }, 1000);
+   
       },
       err => {
+        this.showLoaderInit = false;
         console.log(err);
       }
     );

@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -9,8 +8,9 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class ChatComponent implements OnInit {
   public form: FormGroup;
   public message: any;
-  @Input() dataResponseJson: any =[];
   public text: any;
+  @Input() dataResponseJson: any = [];
+  @Input() showLoaderInit: boolean | undefined;
   @Output() emitChangeText = new EventEmitter<Object>();
   constructor(private formBuilder: FormBuilder,) {
     this.form = this.formBuilder.group({
@@ -20,17 +20,21 @@ export class ChatComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  sendMessageFromButton() {
-
-  }
   sendFormulario(value: any) {
     this.text = this.message;
-    console.warn('SEND', this.form, value);
     this.emitChangeText.emit(value);
     this.removeFormularios();
   }
   private removeFormularios() {
     this.form.reset();
+  }
+  //EXPRESIONES REGULARES  PARA SELECCIONAR *PALABRA* && SALTO DE LINEA
+  formatText(value: any) {
+    const regex = /\*([\w\s\(\)ñÑáéíóúÁÉÍÓÚ]*)\*/g;
+    const lineBreak = /[\n]/g;
+    const subst = `<strong>$1</strong>`;
+    const textEnd = value.replace(lineBreak, '<br>');
+    return textEnd.replace(regex, subst);
+
   }
 }

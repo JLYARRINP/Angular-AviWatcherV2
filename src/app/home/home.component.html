@@ -1,36 +1,39 @@
-<div class="ng-content">
+<div class="ng-content flex-class">
     <div class="section-1">
         <div class="content-nav">
-            <div class="toolbar nav pl-16">
+            <div class="toolbar nav-section1 flex-class pl-16">
                 <div class="flex-class ai-center">
-                    <p class="m-0"> <span>AVIwatcher</span></p>
+                    <p class="m-0 fts-20 flex-class ai-center m-0"> <span>AVIwatcher</span></p>
                     <div class="button-container ml-16 mr-16">
-                        <button mat-button color="primary">RESTAURAR</button>
+                        <button mat-button>RESTAURAR</button>
                     </div>
                 </div>
             </div>
         </div>
-        <div *ngIf="json" class="content-json p-16 pb-16">
-            <ngx-json-viewer [json]="json" [expanded]="true" #jsonFormater></ngx-json-viewer>
-
+        <div *ngIf="showLoaderInit" class="ai-center p-16 loading ta-c ai-center flex-class jc-center">
+            <div>
+                <img src="assets/icon/loading.svg" alt="loading">
+                <p>Cargando Respuesta</p>
+            </div>
         </div>
-
+        <div *ngIf="json && !showLoaderInit" class="content-json p-16 pb-16">
+            <ngx-json-viewer [json]="json" [expanded]="true" #jsonFormater></ngx-json-viewer>
+        </div>
     </div>
     <div class="section-2">
         <div class="content-form">
-
-            <form id="contactForm" [formGroup]="formNav" class="col-10 flex-class ai-center toolbar nav  pr-16">
-                <div class="section-checkbox flex-class">
+            <form id="contactForm" [formGroup]="formNav" class="col-10 flex-class jc-sb ai-center toolbar ta-c nav-section2 pr-16">
+                <div class="section-checkbox flex-class ai-center fts-10">
                     <mat-checkbox class=" ml-16 mr-12" formControlName="web">WEB</mat-checkbox>
-                    <mat-checkbox class=" " formControlName="app">APP</mat-checkbox>
+                    <mat-checkbox formControlName="app">APP</mat-checkbox>
                 </div>
                 <div class="flex-class m-16 ai-center">
-                    <div class="mr-8 label-env">
-                        <mat-label>Ambiente :</mat-label>
+                    <div class="mr-8 w-space ta-c flex-class ">
+                        <mat-label class="fts-14">Ambiente :</mat-label>
                     </div>
                     <mat-form-field appearance="outline" class="env-select">
                         <mat-select (selectionChange)="capturar($event)" placeholder="seleccionar" formControlName="ambiente">
-                            <mat-option *ngFor="let items of ambientes" [value]="items" style="font-size: 14px;">
+                            <mat-option *ngFor="let items of ambientes" [value]="items" class="fts-14">
                                 {{items}}
                             </mat-option>
                         </mat-select>
@@ -38,12 +41,12 @@
                 </div>
                 <div class="flex-class m-16 ai-center">
 
-                    <div class="mr-8" style="text-align: center; display: flex  ;   white-space: nowrap;">
-                        <mat-label style="font-size: 14px; ;">Bot :</mat-label>
+                    <div class="mr-8 flex-class ai-center w-space">
+                        <mat-label class="fts-14">Bot :</mat-label>
                     </div>
                     <mat-form-field appearance="outline" class="env-select">
                         <mat-select (selectionChange)="capturar($event)" placeholder="seleccionar">
-                            <mat-option *ngFor="let items of data" [value]="items" style="font-size: 14px;">
+                            <mat-option *ngFor="let items of data" [value]="items" class="fts-14">
                                 {{items.name}}
                             </mat-option>
                         </mat-select>
@@ -51,8 +54,8 @@
                 </div>
                 <div class="flex-class m-16 ai-center">
 
-                    <div class="mr-8" style="text-align: center; display: flex ;    white-space: nowrap;">
-                        <mat-label style="font-size: 14px; ;">Identificador :</mat-label>
+                    <div class="mr-8 flex-class ai-center w-space">
+                        <mat-label class="fts-14">Identificador :</mat-label>
                     </div>
                     <div class="flex-class content-input">
                         <input class="input-id" type="tel" matInput placeholder="+51" autocomplete="off">
@@ -61,12 +64,12 @@
 
                 </div>
                 <div class="button-container">
-                    <button mat-button color="primary">LIMPIAR</button>
+                    <button mat-button>LIMPIAR</button>
                 </div>
             </form>
         </div>
-        <div style=" height: calc(100vw - 73px);">
-            <app-chat (emitChangeText)="changeText($event)" [dataResponseJson]='dataResponseJson'></app-chat>
+        <div class="content-chat">
+            <app-chat (emitChangeText)="changeText($event)" [dataResponseJson]='dataResponseJson' [showLoaderInit]='showLoaderInit'></app-chat>
         </div>
     </div>
 </div>

@@ -43,7 +43,7 @@ $IBK-AVI-Watcher-theme: mat-light-theme(( color: ( primary: $IBK-AVI-Watcher-pri
 // that you are using.
 @include angular-material-theme($IBK-AVI-Watcher-theme);
 // COLOR PARA ESTRUCTURA DE JSON
-$type-colors: ( string: #00BB31, number: #0033A1, boolean: #b938a4, date: #05668D, array: #999, object: #999, function: #999, 'null': #fff, undefined: #fff);
+$type-colors: ( string: #00BB31, number: #0033A1, boolean: #EB0046, date: #64B4E6, array: #999, object: #999, function: #999, 'null': #fff, undefined: #fff);
 .ngx-json-viewer {
     font-family: monospace;
     font-size: 1em;
@@ -93,7 +93,7 @@ $type-colors: ( string: #00BB31, number: #0033A1, boolean: #b938a4, date: #05668
     }
     // special cases need highlightted
     .segment-type-null>.segment-main>.segment-value {
-        color: red !important;
+        color: #EB0046 !important;
         background-color: transparent !important;
     }
     .segment-type-undefined>.segment-main {

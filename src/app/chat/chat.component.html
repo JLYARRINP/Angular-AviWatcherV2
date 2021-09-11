@@ -1,10 +1,10 @@
-<div class="chatlist" #chatlist>
+<div class="chatlist hp-100">
     <form [formGroup]="form">
         <div class="msg_card_body">
-            <div class="ta-c content">
+            <div class="ta-c hp-100">
                 <!-- Bienvenia del Bot-->
                 <div class="header-titles">
-                    <div>Texto</div>
+                    <div>Text</div>
                     <div>Código</div>
                     <div>Confianza</div>
                     <div>Flujo</div>
@@ -12,56 +12,66 @@
                     <div>Botones</div>
                 </div>
                 <div class="p-16 body" *ngIf="dataResponseJson" #scrollMe [scrollTop]="scrollMe.scrollHeight">
-                    <div *ngFor="let value of dataResponseJson">
-                        <div class="flex-class jc-fe contentWelcome ">
-                            <div #messageitem class="mensaje-user mb-2 mr-16">
-                                {{value.text}}
+                    <div class="pb-32">
+                        <div *ngFor="let value of dataResponseJson">
+                            <div class="flex-class jc-fe contentWelcome ">
+                                <div #messageitem class="mensaje-user mb-2 mr-16 p-10 ta-s">
+                                    {{value.text}}
+                                </div>
+                            </div>
+                            <div *ngFor="let items of value.answers" class=" content-response jc-fs">
+                                <div class="flex-class ">
+                                    <div class="mensaje-bot mb-2v  mb-2 p-10 ta-s">
+                                        <span [innerHtml]='formatText(items.text)'> </span>
+                                    </div>
+                                </div>
+                                <div class="variables-response ai-center ">
+                                    <div class="flex-class ta-c jc-center">
+                                        <div class="mensaje-response-bot mb-2v  mb-2 ta-c p-5">
+                                            {{items.code}}
+                                        </div>
+                                    </div>
+
+                                    <div class="flex-class ta-c jc-center">
+                                        <div class="mensaje-response-bot mb-2v flex-class mb-2">
+                                            {{items.confidence | number : '1.2-2'}}
+                                        </div>
+                                    </div>
+                                    <div class="flex-class ta-c jc-center">
+                                        <div class="mensaje-response-bot mb-2v flex-class mb-2">
+                                            {{items.flow}}
+                                        </div>
+                                    </div>
+                                    <div class="flex-class ta-c jc-center">
+                                        <div class="mensaje-response-bot mb-2v flex-class mb-2">
+                                            {{items.technicalText}}
+                                        </div>
+                                    </div>
+                                    <div class="flex-class ta-c jc-center">
+                                        <div class="mensaje-response-bot mb-2v flex-class mb-2">
+                                            {{items.options}}
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div *ngFor="let items of value.answers" class=" content-response jc-fs">
-                            <div class="flex-class ">
-                                <div class="mensaje-bot mb-2v  mb-2">
-                                    {{items.text}}
-                                </div>
-                            </div>
-                            <div class="variables-response">
-                                <div class="flex-class ta-c jc-center">
-                                    <div class="mensaje-response-bot mb-2v  mb-2">
-                                        {{items.code}}
-                                    </div>
-                                </div>
-
-                                <div class="flex-class ta-c jc-center">
-                                    <div class="mensaje-response-bot mb-2v flex-class mb-2">
-                                        {{items.confidence | number : '1.2-2'}}
-                                    </div>
-                                </div>
-                                <div class="flex-class ta-c jc-center">
-                                    <div class="mensaje-response-bot mb-2v flex-class mb-2">
-                                        {{items.flow}}
-                                    </div>
-                                </div>
-                                <div class="flex-class ta-c jc-center">
-                                    <div class="mensaje-response-bot mb-2v flex-class mb-2">
-                                        {{items.technicalText}}
-                                    </div>
-                                </div>
-                                <div class="flex-class ta-c jc-center">
-                                    <div class="mensaje-response-bot mb-2v flex-class mb-2">
-                                        {{items.options}}
-                                    </div>
-                                </div>
+                        <div *ngIf="showLoaderInit" class="ai-center p-16 loading ta-c ai-center flex-class jc-center">
+                            <div class="pos-ab">
+                                <img src="assets/icon/loading.svg" alt="loading">
+                                <p>Cargando Respuesta</p>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
+
         </div>
-        <footer class="flex-class content-msj pt-8 pb-8 pl-16 pr-16">
+        <footer class="content-msj flex-class pt-8 pb-8 pl-16 pr-16 vw-100 ai-center">
             <mat-icon class="mr-16 icon">tag_faces</mat-icon>
             <mat-icon class="mr-16 icon">attach_file</mat-icon>
-            <div class="input-text">
-                <input class="input-num pt-8 pb-8" matInput placeholder="Escribe un mensaje" formControlName="textInput" [(ngModel)]="message" autocomplete="off">
+            <div class="input-text ta-s ai-center flex-class">
+                <input class="pt-8 pb-8" matInput placeholder="Escribe un mensaje" formControlName="textInput" [(ngModel)]="message" autocomplete="off">
             </div>
             <div>
                 <button id="btnEnviarFormulario" (click)="sendFormulario(message)" [ngClass]="form.invalid ? 'btn-send' : 'btn-send-text'" [disabled]="form.invalid">
@@ -69,7 +79,7 @@
         </button>
             </div>
             <div class="button-container ml-16">
-                <button mat-button color="primary">EXPORTAR</button>
+                <button mat-button>EXPORTAR</button>
             </div>
         </footer>
     </form>
