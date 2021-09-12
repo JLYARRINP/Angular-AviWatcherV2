@@ -11,16 +11,16 @@
                     <div>Texto técnico</div>
                     <div>Botones</div>
                 </div>
-                <div class="p-16 body" *ngIf="dataResponseJson" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+                <div class="pr-16 pb-16 pt-16 body" *ngIf="dataResponseJson" #scrollMe [scrollTop]="scrollMe.scrollHeight">
                     <div class="pb-32">
                         <div *ngFor="let value of dataResponseJson">
-                            <div class="flex-class jc-fe contentWelcome ">
-                                <div #messageitem class="mensaje-user mb-2 mr-16 p-10 ta-s">
+                            <div [ngClass]="showheartIconRead ? 'mensaje-user_web' : 'mensaje-user_app'" class="flex-class jc-fe contentWelcome pb-8 pt-8">
+                                <div #messageitem [ngClass]="showheartIconRead ? 'mensaje_web' : 'mensaje_app'" class="mensaje-user mb-2 p-10 ta-s">
                                     {{value.text}}
                                 </div>
                             </div>
                             <div *ngFor="let items of value.answers" class=" content-response jc-fs">
-                                <div class="flex-class ">
+                                <div class="flex-class pl-16 pr-16" [ngClass]="showheartIconRead ? 'content_size_web' : 'content_size_app'">
                                     <div class="mensaje-bot mb-2v  mb-2 p-10 ta-s">
                                         <span [innerHtml]='formatText(items.text)'> </span>
                                     </div>

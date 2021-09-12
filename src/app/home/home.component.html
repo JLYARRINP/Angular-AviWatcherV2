@@ -5,7 +5,7 @@
                 <div class="flex-class ai-center">
                     <p class="m-0 fts-20 flex-class ai-center m-0"> <span>AVIwatcher</span></p>
                     <div class="button-container ml-16 mr-16">
-                        <button mat-button>RESTAURAR</button>
+                        <button mat-button (click)="restaurar()">RESTAURAR</button>
                     </div>
                 </div>
             </div>
@@ -23,10 +23,12 @@
     <div class="section-2">
         <div class="content-form">
             <form id="contactForm" [formGroup]="formNav" class="col-10 flex-class jc-sb ai-center toolbar ta-c nav-section2 pr-16">
-                <div class="section-checkbox flex-class ai-center fts-10">
-                    <mat-checkbox class=" ml-16 mr-12" formControlName="web">WEB</mat-checkbox>
-                    <mat-checkbox formControlName="app">APP</mat-checkbox>
-                </div>
+                <mat-radio-group>
+                    <div class="section-checkbox flex-class ai-center fts-10">
+                        <mat-radio-button class=" ml-16 mr-12" value="1" (change)="setearValor(1)">WEB </mat-radio-button>
+                        <mat-radio-button value="2" (change)="setearValor(2)" [checked]="true">APP</mat-radio-button>
+                    </div>
+                </mat-radio-group>
                 <div class="flex-class m-16 ai-center">
                     <div class="mr-8 w-space ta-c flex-class ">
                         <mat-label class="fts-14">Ambiente :</mat-label>
@@ -45,7 +47,7 @@
                         <mat-label class="fts-14">Bot :</mat-label>
                     </div>
                     <mat-form-field appearance="outline" class="env-select">
-                        <mat-select (selectionChange)="capturar($event)" placeholder="seleccionar">
+                        <mat-select (selectionChange)="capturar($event)" placeholder="seleccionar" formControlName="bot">
                             <mat-option *ngFor="let items of data" [value]="items" class="fts-14">
                                 {{items.name}}
                             </mat-option>
@@ -58,18 +60,18 @@
                         <mat-label class="fts-14">Identificador :</mat-label>
                     </div>
                     <div class="flex-class content-input">
-                        <input class="input-id" type="tel" matInput placeholder="+51" autocomplete="off">
-                        <input class="input-num" type="tel" matInput placeholder="Ingresa número" autocomplete="off">
+                        <input class="input-id" type="tel" matInput placeholder="+51" autocomplete="off" formControlName="identificador">
+                        <input class="input-num pl-8 pr-8" type="tel" matInput placeholder="Ingresa número" autocomplete="off" formControlName="number">
                     </div>
 
                 </div>
                 <div class="button-container">
-                    <button mat-button>LIMPIAR</button>
+                    <button mat-button (click)="limpiar()">LIMPIAR</button>
                 </div>
             </form>
         </div>
         <div class="content-chat">
-            <app-chat (emitChangeText)="changeText($event)" [dataResponseJson]='dataResponseJson' [showLoaderInit]='showLoaderInit'></app-chat>
+            <app-chat (emitChangeText)="changeText($event)" [dataResponseJson]='dataResponseJson' [showLoaderInit]='showLoaderInit' [showheartIconRead]='showheartIconRead' [resetText]='resetText'></app-chat>
         </div>
     </div>
 </div>

@@ -23,7 +23,7 @@
                 .mensaje-user {
                     background: $secondary-green;
                     border-radius: 5px;
-                    max-width: 75%;
+                    max-width: 100%;
                 }
             }
             .content-response {
@@ -33,7 +33,7 @@
                 .mensaje-bot {
                     background: $primary-white;
                     border-radius: 5px;
-                    max-width: 75%;
+                    max-width: 100%;
                 }
                 .variables-response {
                     background: $quinary-green;
@@ -94,4 +94,30 @@
 
 .btn-send-text {
     color: $primary-green;
+}
+
+.content_size_app {
+    padding: 0 5rem;
+}
+
+.content_size_web {
+    //sin estilo  
+}
+
+.mensaje_web {
+    margin-right: 1rem;
+}
+
+.mensaje_app {
+    margin-right: 5rem;
+}
+
+.mensaje-user_app {
+    padding-left: 5rem;
+    width: calc(50% - 5rem) !important;
+}
+
+.mensaje-user_web {
+    padding-left: 1rem;
+    width: calc(50% - 1rem) !important;
 }

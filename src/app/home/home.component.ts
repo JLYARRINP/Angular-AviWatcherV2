@@ -13,13 +13,16 @@ export class HomeComponent implements OnInit {
   jsonFormater!: ElementRef;
 
   ambientes: string[] = ['DEV', 'UAT', 'STG'];
-  public resultado : any;
+  public resultado: any;
   public formNav: FormGroup;
   public data: any;
   public dataResponseJson: any = [];
   public json: any;
   public sessionCode = '';
-  public showLoaderInit : boolean = false;
+  public showLoaderInit: boolean = false;
+  public showheartIconRead: boolean = false;
+  public resetText: boolean = false;
+  public identityVerificationMethod = 1;
   public environmentManagerHome: EnvironmentManagerService;
   constructor(public environmentManager: EnvironmentManagerService,
     private formBuilder: FormBuilder,
@@ -27,10 +30,10 @@ export class HomeComponent implements OnInit {
     private conversationService: ConversationService) {
     this.environmentManagerHome = environmentManager;
     this.formNav = this.formBuilder.group({
-      app: new FormControl(''),
-      web: new FormControl(''),
       ambiente: new FormControl('', [Validators.required]),
-      level2: new FormControl('', [Validators.required])
+      bot: new FormControl('', [Validators.required]),
+      identificador: new FormControl('', [Validators.required]),
+      number: new FormControl('', [Validators.required]),
     });
 
   }
@@ -67,7 +70,7 @@ export class HomeComponent implements OnInit {
         setTimeout(() => {
           this.jsonFormater.nativeElement.children[0].scrollTop = this.jsonFormater.nativeElement.children[0].scrollHeight;
         }, 1000);
-   
+
       },
       err => {
         this.showLoaderInit = false;
@@ -79,5 +82,22 @@ export class HomeComponent implements OnInit {
   ngOnDestroy() {
     this.sessionCode = '';
   }
-
+  setearValor(valor: any) {
+    if (valor === 1) {
+      this.showheartIconRead = true;
+    } else {
+      this.showheartIconRead = false;
+    }
+  }
+  restaurar(){
+    this.formNav.reset(); 
+    this.dataResponseJson=[];
+    this.sessionCode = '';
+    this.json='';
+  }
+  limpiar(){
+    this.dataResponseJson=[];
+    this.json='';
+    this.resetText = true;
+  }
 }

@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
+import {MatRadioModule} from '@angular/material/radio';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,7 @@ import { NgxJsonViewerModule } from 'ngx-json-viewer';
     MatInputModule,
     MatIconModule,
     NgxJsonViewerModule,
-    
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

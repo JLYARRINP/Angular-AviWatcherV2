@@ -31,13 +31,22 @@
     height: auto;
 }
 
-::ng-deep .mat-checkbox-checked .mat-checkbox-checkmark {
-    background: $primary-green;
-    border-radius: 5px;
+::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: $primary-green;
+    background-color: $primary-green;
 }
 
-::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
-    background-color: $primary-green;
+::ng-deep .mat-radio-outer-circle {
+    border-radius: 2px;
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: $primary-white;
+    clip-path: polygon(21% 40%, 21% 40%, 8% 54%, 25% 68%, 36% 77%, 47% 65%, 48% 64%, 64% 47%, 75% 35%, 93% 13%, 81% 4%, 36% 54%);
+}
+
+::ng-deep.mat-radio-checked .mat-radio-inner-circle {
+    transform: scale(0.7);
 }
 
 ::ng-deep .mat-ripple-element {

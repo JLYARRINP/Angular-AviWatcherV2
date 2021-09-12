@@ -11,6 +11,8 @@ export class ChatComponent implements OnInit {
   public text: any;
   @Input() dataResponseJson: any = [];
   @Input() showLoaderInit: boolean | undefined;
+  @Input() showheartIconRead: boolean | undefined;
+  @Input() resetText: boolean | undefined;
   @Output() emitChangeText = new EventEmitter<Object>();
   constructor(private formBuilder: FormBuilder,) {
     this.form = this.formBuilder.group({
@@ -19,6 +21,12 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  
+  }
+  ngOnChanges(){
+    if(this.resetText){
+      this.removeFormularios();
+    }
   }
   sendFormulario(value: any) {
     this.text = this.message;
