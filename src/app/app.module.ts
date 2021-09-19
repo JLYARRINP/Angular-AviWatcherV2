@@ -19,6 +19,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ModalComponent } from './modal/modal.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatMenuModule} from '@angular/material/menu';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     NgxJsonViewerModule,
     MatRadioModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

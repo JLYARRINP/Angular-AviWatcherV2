@@ -11,6 +11,19 @@
     }
 }
 
+.button-container-disable {
+    button {
+        background: $tertiary-grey-dark;
+        border-radius: 4px;
+        border: 2px solid $tertiary-grey-dark;
+        height: 32px;
+        color: $primary-white;
+        font-size: 12px;
+        align-items: center;
+        display: flex;
+    }
+}
+
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
     padding: .7rem 0;
     border-top: 0;

@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { ConversationService } from '@app/commons/services/conversations.service';
 import { EnvironmentManagerService } from '@app/commons/services/environment-manager.service';
-import { ModalComponent } from '@app/modal/modal.component';
+import html2canvas from 'html2canvas';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,7 +13,12 @@ import { ModalComponent } from '@app/modal/modal.component';
 export class HomeComponent implements OnInit {
   @ViewChild('jsonFormater', { read: ElementRef })
   jsonFormater!: ElementRef;
-
+  @ViewChild('screen')
+  screen!: ElementRef;
+  @ViewChild('canvas')
+  canvas!: ElementRef;
+  @ViewChild('downloadLink')
+  downloadLink!: ElementRef;
   ambientes: string[] = ['DEV', 'UAT', 'STG'];
   public resultado: any;
   public formNav!: FormGroup;
@@ -24,19 +29,21 @@ export class HomeComponent implements OnInit {
   public sessionCode = '';
   public showLoaderInit: boolean = false;
   public showheartIconRead: boolean = false;
+  public activeDownload: boolean = false;
   public resetText: boolean = false;
   public sendText: boolean = false;
   public identityVerificationMethod = 1;
+  imgcreada = false;
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   public environmentManagerHome: EnvironmentManagerService;
-  constructor( environmentManager: EnvironmentManagerService,
+  constructor(environmentManager: EnvironmentManagerService,
     private formBuilder: FormBuilder,
     private conversationService: ConversationService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar) {
     this.environmentManagerHome = environmentManager;
-   this.formInit();
+    this.formInit();
 
   }
 
@@ -48,18 +55,18 @@ export class HomeComponent implements OnInit {
     console.warn('event', event.value)
     this.readData();
   }
- formInit(){
-  this.formNav = this.formBuilder.group({
-    ambiente: new FormControl('', [Validators.required]),
-    bot: new FormControl('', [Validators.required]),
-    identifier: new FormControl('+51', [Validators.required]),
-    number: new FormControl('', [Validators.required])
-  });
- }
+  formInit() {
+    this.formNav = this.formBuilder.group({
+      ambiente: new FormControl('', [Validators.required]),
+      bot: new FormControl('', [Validators.required]),
+      identifier: new FormControl('+51', [Validators.required]),
+      number: new FormControl('', [Validators.required])
+    });
+  }
   readData() {
     this.environmentManagerHome.changeEnvironment(this.formNav.value.ambiente);
     this.data = this.environmentManagerHome.currentEnvironemnt.configFile.projects;
-    console.warn('......', this.data,'foorororro', this.formNav.value.identifier);
+    console.warn('......', this.data, 'foorororro', this.formNav.value.identifier);
   }
   capturar(event: any) {
     console.warn('event bot.....', event.value)
@@ -71,22 +78,28 @@ export class HomeComponent implements OnInit {
 
   public changeText(value: any) {
     this.sendText = true;
-    let text = {text: value}
+    let text = { text: value }
     this.showLoaderInit = true;
-    const params={
-      textInput : text,
-      sessionCode:this.sessionCode,
-      enviroment:this.formNav.value.ambiente,
-      bot:this.bot,
-      numberIdentificador:this.formNav.value.identifier+this.formNav.value.number
+    const params = {
+      textInput: text,
+      sessionCode: this.sessionCode,
+      enviroment: this.formNav.value.ambiente,
+      bot: this.bot,
+      numberIdentificador: this.formNav.value.identifier + this.formNav.value.number
     }
-    console.warn('verificar los parametros...',params);
-    
+    console.warn('verificar los parametros...', params);
+
     this.conversationService.chat(params).subscribe(
       data => {
+       
         this.showLoaderInit = false;
         this.json = data;
         this.dataResponseJson.push(data);
+        if (this.dataResponseJson && this.dataResponseJson.length > 0) {
+          this.activeDownload = true;
+        }else{
+          this.activeDownload = false;
+        }
         this.sessionCode = data.sessionCode;
         setTimeout(() => {
           this.jsonFormater.nativeElement.children[0].scrollTop = this.jsonFormater.nativeElement.children[0].scrollHeight;
@@ -95,6 +108,7 @@ export class HomeComponent implements OnInit {
       },
       err => {
         this.showLoaderInit = false;
+        this.activeDownload = false;
         console.log(err);
         this.sendText = false;
         this.openSnackBar();
@@ -105,17 +119,13 @@ export class HomeComponent implements OnInit {
   ngOnDestroy() {
     this.sessionCode = '';
   }
-  openDialog() {
-    this.dialog.open(ModalComponent);
-  }
+
   openSnackBar() {
     this._snackBar.open('Error de consulta', 'Error', {
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
       duration: 1500,
       panelClass: ['notif-succes']
-      // message: '<ion-icon src="assets/icon/icon-check.svg" size="large"></ion-icon> Documento añadido a la bolsa',
-      // duration: 1500,
     });
   }
   setearValor(valor: any) {
@@ -125,19 +135,20 @@ export class HomeComponent implements OnInit {
       this.showheartIconRead = false;
     }
   }
-  restaurar(){
-    console.warn('this.formNav',this.formNav);
-    
-    this.formNav.reset(); 
+  restaurar() {
+    console.warn('this.formNav', this.formNav);
+
+    this.formNav.reset();
     this.formInit();
-    this.dataResponseJson=[];
+    this.dataResponseJson = [];
     this.sessionCode = '';
-    this.json='';
+    this.json = '';
     this.sendText = false;
+    this.activeDownload = false;
   }
-  limpiar(){
-    this.dataResponseJson=[];
-    this.json='';
+  limpiar() {
+    this.dataResponseJson = [];
+    this.json = '';
     this.resetText = true;
   }
 }

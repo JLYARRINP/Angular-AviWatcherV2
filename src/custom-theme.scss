@@ -116,3 +116,8 @@ $type-colors: ( string: #00BB31, number: #0033A1, boolean: #EB0046, date: #64B4E
         cursor: pointer;
     }
 }
+
+.mat-menu-panel {
+    min-width: 95px !important;
+    margin-bottom: 1rem;
+}

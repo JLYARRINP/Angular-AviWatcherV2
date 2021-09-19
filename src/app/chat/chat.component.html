@@ -3,16 +3,16 @@
         <div class="msg_card_body">
             <div class="ta-c hp-100">
                 <!-- Bienvenia del Bot-->
-                <div class="header-titles">
+                <div id='html2canvasHeaders' class="header-titles">
                     <div>Text</div>
                     <div>Código</div>
                     <div>Confianza</div>
                     <div>Flujo</div>
                     <div>Texto técnico</div>
-                    <div>Botones</div>
+                    <div>Botones{{activeDownload}}</div>
                 </div>
                 <div class="pr-16 pb-16 pt-16 body" *ngIf="dataResponseJson" #scrollMe [scrollTop]="scrollMe.scrollHeight">
-                    <div class="pb-32">
+                    <div id="contentChat" #screen class="pb-32">
                         <div *ngFor="let value of dataResponseJson">
                             <div [ngClass]="showheartIconRead ? 'mensaje-user_web' : 'mensaje-user_app'" class="flex-class jc-fe contentWelcome pb-8 pt-8">
                                 <div #messageitem [ngClass]="showheartIconRead ? 'mensaje_web' : 'mensaje_app'" class="mensaje-user mb-2 p-10 ta-s">
@@ -65,7 +65,6 @@
 
                 </div>
             </div>
-
         </div>
         <footer class="content-msj flex-class pt-8 pb-8 pl-16 pr-16 vw-100 ai-center">
             <mat-icon class="mr-16 icon">tag_faces</mat-icon>
@@ -75,12 +74,26 @@
             </div>
             <div>
                 <button id="btnEnviarFormulario" (click)="sendFormulario(message)" [ngClass]="form.invalid ? 'btn-send' : 'btn-send-text'" [disabled]="form.invalid">
-          <mat-icon>send</mat-icon>
+          <mat-icon>send{{activeDownload}}</mat-icon>
         </button>
             </div>
-            <div class="button-container ml-16">
-                <button mat-button (click)="openDialog()">EXPORTAR</button>
+            <div [ngClass]="activeDownload ?'button-container ml-16':'button-container-disable ml-16'">
+                <button mat-button [matMenuTriggerFor]="aboveMenu" [disabled]="!activeDownload">EXPORTAR</button>
+                <mat-menu #aboveMenu="matMenu" Position="above">
+                    <button class="button-export" mat-menu-item (click)="openDialog()">
+                        <img src="assets/icon/icon-excel.svg" alt="icon-excel">
+                        <span class="pl-8 fts-12">Excel</span>
+                    </button>
+                    <button class="button-export" mat-menu-item (click)="openDialog()">
+                        <img src="assets/icon/icon-imagen.svg" alt="icon-imagen">
+                        <span class="pl-8 fts-12">Imagen</span>
+                    </button>
+                </mat-menu>
             </div>
         </footer>
     </form>
+</div>
+<div id="download">
+    <img #canvas />
+    <a #downloadLink></a>
 </div>

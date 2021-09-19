@@ -121,3 +121,16 @@
     padding-left: 1rem;
     width: calc(50% - 1rem) !important;
 }
+
+.button-export {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    img {
+        width: 20px;
+    }
+}
+
+#download {
+    display: none;
+}
