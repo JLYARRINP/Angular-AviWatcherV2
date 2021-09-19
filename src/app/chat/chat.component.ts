@@ -9,11 +9,13 @@ export class ChatComponent implements OnInit {
   public form: FormGroup;
   public message: any;
   public text: any;
+  @Input() formNav!: FormGroup;
   @Input() dataResponseJson: any = [];
   @Input() showLoaderInit: boolean | undefined;
   @Input() showheartIconRead: boolean | undefined;
   @Input() resetText: boolean | undefined;
   @Output() emitChangeText = new EventEmitter<Object>();
+  @Output() emitopenDialog = new EventEmitter<Object>();
   constructor(private formBuilder: FormBuilder,) {
     this.form = this.formBuilder.group({
       textInput: new FormControl('', [Validators.required]),
@@ -24,6 +26,8 @@ export class ChatComponent implements OnInit {
   
   }
   ngOnChanges(){
+    console.warn('[disabled]="formNav.invalid"',this.formNav.invalid);
+    
     if(this.resetText){
       this.removeFormularios();
     }
@@ -44,5 +48,8 @@ export class ChatComponent implements OnInit {
     const textEnd = value.replace(lineBreak, '<br>');
     return textEnd.replace(regex, subst);
 
+  }
+  openDialog(){
+    this.emitopenDialog.emit();
   }
 }

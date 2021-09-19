@@ -81,3 +81,9 @@
         }
     }
 }
+
+::ng-deep snack-bar-container.notif-succes {
+    padding: 20px;
+    background-color: $primary-watermelon;
+    color: $primary-white;
+}

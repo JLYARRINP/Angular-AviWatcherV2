@@ -16,11 +16,15 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ModalComponent } from './modal/modal.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ChatComponent
+    ChatComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,9 @@ import {MatRadioModule} from '@angular/material/radio';
     MatInputModule,
     MatIconModule,
     NgxJsonViewerModule,
-    MatRadioModule
+    MatRadioModule,
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

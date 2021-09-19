@@ -34,7 +34,7 @@
                         <mat-label class="fts-14">Ambiente :</mat-label>
                     </div>
                     <mat-form-field appearance="outline" class="env-select">
-                        <mat-select (selectionChange)="capturar($event)" placeholder="seleccionar" formControlName="ambiente">
+                        <mat-select (selectionChange)="capturarEnviroment($event)" placeholder="seleccionar" formControlName="ambiente" [disabled]="sendText">
                             <mat-option *ngFor="let items of ambientes" [value]="items" class="fts-14">
                                 {{items}}
                             </mat-option>
@@ -47,7 +47,7 @@
                         <mat-label class="fts-14">Bot :</mat-label>
                     </div>
                     <mat-form-field appearance="outline" class="env-select">
-                        <mat-select (selectionChange)="capturar($event)" placeholder="seleccionar" formControlName="bot">
+                        <mat-select (selectionChange)="capturar($event)" placeholder="seleccionar" formControlName="bot" [disabled]="sendText">
                             <mat-option *ngFor="let items of data" [value]="items" class="fts-14">
                                 {{items.name}}
                             </mat-option>
@@ -60,8 +60,8 @@
                         <mat-label class="fts-14">Identificador :</mat-label>
                     </div>
                     <div class="flex-class content-input">
-                        <input class="input-id" type="tel" matInput placeholder="+51" autocomplete="off" formControlName="identificador">
-                        <input class="input-num pl-8 pr-8" type="tel" matInput placeholder="Ingresa número" autocomplete="off" formControlName="number">
+                        <input class="input-id" type="text" matInput autocomplete="off" formControlName="identifier" maxlength="3" [disabled]="sendText" [readonly]="sendText">
+                        <input class="input-num pl-8 pr-8" type="tel" matInput placeholder="Ingresa número" autocomplete="off" formControlName="number" maxlength="9" onkeypress='return event.charCode >= 48 && event.charCode <= 57' [disabled]="sendText" [readonly]="sendText">
                     </div>
 
                 </div>
@@ -71,7 +71,7 @@
             </form>
         </div>
         <div class="content-chat">
-            <app-chat (emitChangeText)="changeText($event)" [dataResponseJson]='dataResponseJson' [showLoaderInit]='showLoaderInit' [showheartIconRead]='showheartIconRead' [resetText]='resetText'></app-chat>
+            <app-chat [formNav]="formNav" (emitChangeText)="changeText($event)" [dataResponseJson]=' dataResponseJson ' [showLoaderInit]='showLoaderInit ' [showheartIconRead]='showheartIconRead ' [resetText]='resetText ' (emitopenDialog)="openDialog()"></app-chat>
         </div>
     </div>
 </div>

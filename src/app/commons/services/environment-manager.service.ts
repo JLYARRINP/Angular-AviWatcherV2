@@ -26,8 +26,6 @@ export class EnvironmentManagerService {
       default:
         this.currentEnvironemnt = envDev;
         break;
-    }
-    console.warn('this.currentEnvironemnt....',this.currentEnvironemnt);
-    
+    } 
   }
 }

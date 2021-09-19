@@ -71,7 +71,7 @@
             <mat-icon class="mr-16 icon">tag_faces</mat-icon>
             <mat-icon class="mr-16 icon">attach_file</mat-icon>
             <div class="input-text ta-s ai-center flex-class">
-                <input class="pt-8 pb-8" matInput placeholder="Escribe un mensaje" formControlName="textInput" [(ngModel)]="message" autocomplete="off">
+                <input class="pt-8 pb-8" matInput placeholder="Escribe un mensaje" formControlName="textInput" [(ngModel)]="message" autocomplete="off" [readonly]="this.formNav.invalid">
             </div>
             <div>
                 <button id="btnEnviarFormulario" (click)="sendFormulario(message)" [ngClass]="form.invalid ? 'btn-send' : 'btn-send-text'" [disabled]="form.invalid">
@@ -79,7 +79,7 @@
         </button>
             </div>
             <div class="button-container ml-16">
-                <button mat-button>EXPORTAR</button>
+                <button mat-button (click)="openDialog()">EXPORTAR</button>
             </div>
         </footer>
     </form>
