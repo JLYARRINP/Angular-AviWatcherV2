@@ -58,7 +58,8 @@
             .env-select {
                 width: 120px;
             }
-            .content-input {
+            .content-input,
+            .content-input-disable {
                 input {
                     height: 32px;
                     border: 1px solid $quaternary-grey-dark;
@@ -74,6 +75,12 @@
                     border-radius: 0 4px 4px 0;
                     text-align: start;
                 }
+            }
+            .content-input {
+                color: $primary-grey-dark;
+            }
+            .content-input-disable {
+                color: $secondary-grey-dark;
             }
         }
         .content-chat {

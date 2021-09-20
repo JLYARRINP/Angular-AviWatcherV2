@@ -25,8 +25,8 @@
             <form id="contactForm" [formGroup]="formNav" class="col-10 flex-class jc-sb ai-center toolbar ta-c nav-section2 pr-16">
                 <mat-radio-group>
                     <div class="section-checkbox flex-class ai-center fts-10">
-                        <mat-radio-button class=" ml-16 mr-12" value="1" (change)="setearValor(1)">WEB </mat-radio-button>
-                        <mat-radio-button value="2" (change)="setearValor(2)" [checked]="true">APP</mat-radio-button>
+                        <mat-radio-button class=" ml-16 mr-12" value="1" (change)="setearValor(1)" [checked]="activeCheck === 1">WEB </mat-radio-button>
+                        <mat-radio-button value="2" (change)="setearValor(2)" [checked]="activeCheck === 2">APP</mat-radio-button>
                     </div>
                 </mat-radio-group>
                 <div class="flex-class m-16 ai-center">
@@ -59,11 +59,10 @@
                     <div class="mr-8 flex-class ai-center w-space">
                         <mat-label class="fts-14">Identificador :</mat-label>
                     </div>
-                    <div class="flex-class content-input">
-                        <input class="input-id" type="text" matInput autocomplete="off" formControlName="identifier" maxlength="3" [disabled]="sendText" [readonly]="sendText">
-                        <input class="input-num pl-8 pr-8" type="tel" matInput placeholder="Ingresa número" autocomplete="off" formControlName="number" maxlength="9" onkeypress='return event.charCode >= 48 && event.charCode <= 57' [disabled]="sendText" [readonly]="sendText">
+                    <div [ngClass]="sendText?'content-input-disable flex-class':'content-input flex-class'">
+                        <input class="input-id" type="text" matInput autocomplete="off" formControlName="identifier" maxlength="3" [readonly]="sendText">
+                        <input class="input-num pl-8 pr-8" type="tel" matInput placeholder="Ingresa número" autocomplete="off" formControlName="number" maxlength="9" onkeypress='return event.charCode >= 48 && event.charCode <= 57' [readonly]="sendText">
                     </div>
-
                 </div>
                 <div class="button-container">
                     <button mat-button (click)="limpiar()">LIMPIAR</button>

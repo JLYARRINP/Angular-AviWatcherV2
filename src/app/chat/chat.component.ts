@@ -39,8 +39,6 @@ export class ChatComponent implements OnInit {
   
   }
   ngOnChanges(){
-    console.warn('[disabled]="formNav.invalid"',this.formNav.invalid);
-    
     if(this.resetText){
       this.removeFormularios();
     }
@@ -64,17 +62,17 @@ export class ChatComponent implements OnInit {
   }
   openDialog(){
     let elemnt = document.getElementById('html2canvasHeaders')?.cloneNode(true);
-    
-    this.screen.nativeElement.prepend(elemnt);
+    this.headers.nativeElement.prepend(elemnt);
+    let header = document.getElementById('title')?.cloneNode(true);
+    this.screen.nativeElement.prepend(header);
     setTimeout(() => {
       html2canvas(this.screen.nativeElement).then((canvas:any) => {
-     
         this.canvas.nativeElement.src = canvas.toDataURL();
         this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
-      
         this.downloadLink.nativeElement.download = 'AVI-WATCHER.png';
         this.downloadLink.nativeElement.click();
-        this.screen.nativeElement.removeChild(elemnt);
+        this.headers.nativeElement.removeChild(elemnt);
+        this.screen.nativeElement.removeChild(header);
       });
     }, 1000);
    
