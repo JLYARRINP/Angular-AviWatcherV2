@@ -137,7 +137,7 @@ export class HomeComponent implements OnInit {
   }
   restaurar() {
     console.warn('this.formNav', this.formNav);
-
+    this.identityVerificationMethod = 1;
     this.formNav.reset();
     this.formInit();
     this.dataResponseJson = [];
@@ -149,6 +149,8 @@ export class HomeComponent implements OnInit {
   limpiar() {
     this.dataResponseJson = [];
     this.json = '';
+    this.dataResponseJson = [];
+    this.sessionCode = '';
     this.resetText = true;
   }
 }

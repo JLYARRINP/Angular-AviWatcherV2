@@ -1,6 +1,8 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import html2canvas from 'html2canvas';
+import * as XLSX from 'xlsx';
+import * as FileSaver from 'file-saver';  
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -9,7 +11,9 @@ import html2canvas from 'html2canvas';
 export class ChatComponent implements OnInit {
   public form: FormGroup;
   public message: any;
+  public valor: any;
   public text: any;
+  
   @ViewChild('screen')
   screen!: ElementRef;
  @ViewChild('canvas')
@@ -59,11 +63,6 @@ export class ChatComponent implements OnInit {
 
   }
   openDialog(){
-    // let elemnt = document.getElementById('html2canvasHeaders')?.cloneNode(true);
-    // let chat = document.getElementById('contentChat')?.cloneNode(true);
-    // this.headers.nativeElement.append(elemnt);
-    // this.chat.nativeElement.append(chat);
-  
     let elemnt = document.getElementById('html2canvasHeaders')?.cloneNode(true);
     
     this.screen.nativeElement.prepend(elemnt);
@@ -80,4 +79,25 @@ export class ChatComponent implements OnInit {
     }, 1000);
    
   }
+  static toExportFileName(excelFileName: string): string {
+    return `${excelFileName}_export_${new Date().getTime()}.xlsx`;
+  }
+
+  public exportAsExcelFile(json: any[], excelFileName: string): void {
+   console.warn(json);
+  //  json.forEach(value=>{
+  //    this.valor = value.text;
+  //  })
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(json);
+    console.warn(worksheet);
+    const workbook: XLSX.WorkBook = {Sheets: {'data': worksheet}, SheetNames: ['data']};
+    const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+    // XLSX.writeFile(workbook, ChatComponent.toExportFileName(excelFileName));
+    this.saveAsExcelFile(excelBuffer, excelFileName); 
+    console.warn(excelBuffer);
+  }
+  private saveAsExcelFile(buffer: any, fileName: string): void {  
+    const data: Blob = new Blob([buffer], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8'});  
+    FileSaver.saveAs(data, fileName + '_export_' + new  Date().getTime() + '.xlsx');  
+ } 
 }

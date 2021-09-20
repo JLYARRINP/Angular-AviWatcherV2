@@ -9,7 +9,7 @@
                     <div>Confianza</div>
                     <div>Flujo</div>
                     <div>Texto técnico</div>
-                    <div>Botones{{activeDownload}}</div>
+                    <div>Botones</div>
                 </div>
                 <div class="pr-16 pb-16 pt-16 body" *ngIf="dataResponseJson" #scrollMe [scrollTop]="scrollMe.scrollHeight">
                     <div id="contentChat" #screen class="pb-32">
@@ -80,7 +80,7 @@
             <div [ngClass]="activeDownload ?'button-container ml-16':'button-container-disable ml-16'">
                 <button mat-button [matMenuTriggerFor]="aboveMenu" [disabled]="!activeDownload">EXPORTAR</button>
                 <mat-menu #aboveMenu="matMenu" Position="above">
-                    <button class="button-export" mat-menu-item (click)="openDialog()">
+                    <button class="button-export" mat-menu-item (click)="exportAsExcelFile(dataResponseJson,'AVIwatcher')">
                         <img src="assets/icon/icon-excel.svg" alt="icon-excel">
                         <span class="pl-8 fts-12">Excel</span>
                     </button>
