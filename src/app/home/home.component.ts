@@ -82,6 +82,8 @@ export class HomeComponent implements OnInit {
         this.showLoaderInit = false;
         this.json = data;
         this.dataResponseJson.push(data);
+        console.warn('dataResponseJson.......',this.dataResponseJson);
+        
         if (this.dataResponseJson && this.dataResponseJson.length > 0) {
           this.activeDownload = true;
         } else {

@@ -83,6 +83,11 @@ export class ChatComponent implements OnInit {
 
   public exportAsExcelFile(json: any[], excelFileName: string): void {
    console.warn(json);
+   let valueArmados ={
+     textUsuario : json[0].text,
+     textBot:json[0].answers
+   }
+   console.warn('valueArmados...',valueArmados);
   //  json.forEach(value=>{
   //    this.valor = value.text;
   //  })

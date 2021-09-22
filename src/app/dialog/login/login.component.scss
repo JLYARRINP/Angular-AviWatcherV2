@@ -1,53 +1,20 @@
-@import '../../assets/scss/layout/utils';
-@import '../../assets/scss/colors';
+@import '../../../assets/scss/layout/utils';
+@import '../../../assets/scss/colors';
+@import '../../../assets/scss/buttons';
 .form {
-    padding-top: 100px;
-    padding-bottom: 100px;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    position: relative;
-    box-sizing: border-box;
-    flex-direction: row;
-}
-
-.form .container {
-    text-align: center;
-}
-
-.form .container form {
-    display: flex;
-    flex-direction: column;
-    width: 380px;
-    padding: 70px 0;
-}
-
-.form .container form mat-form-field {
-    margin: 10px 0;
-}
-
-.form .container form .button-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.form .container form .button-container button {
-    box-shadow: none;
-    font-size: 12px;
-    border-radius: 45px;
-    width: 200px;
-    background-color: #7839d8;
+    display: grid;
+    grid-template-columns: 50% 50%;
     color: $primary-white;
-    font-weight: 600;
-    border: 2px solid transparent;
-    padding: 10px 31px;
-    margin: 0 auto;
-    transition: 0.2s;
-    letter-spacing: 3px;
-}
-
-.form .container form .button-container button:hover {
-    background-color: #692fc0;
+    .content-img {
+        background-image: url("./../../../assets/img/imagen-login.png");
+        background-position: center center;
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    .text-p {
+        padding-left: 12%;
+    }
 }
