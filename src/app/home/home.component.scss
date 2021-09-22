@@ -8,7 +8,8 @@
     .section-1 {
         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
         position: relative;
-        width: 250px;
+        max-width: 20rem;
+        transform: translateZ(0);
         .content-nav {
             box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
         }
@@ -41,10 +42,14 @@
     .section-2 {
         border-left: 1px solid $quaternary-grey-dark;
         height: 73px;
+        width: 100%;
+        transform: translateZ(1);
         .content-form {
             box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
             position: relative;
             .nav-section2 {
+                display: grid;
+                grid-template-columns: auto 10% 10% 10% 10% 10%;
                 background: $quinary-grey-dark;
                 height: 73px;
                 flex-wrap: nowrap;
@@ -56,7 +61,7 @@
                 }
             }
             .env-select {
-                width: 120px;
+                max-width: 8rem;
             }
             .content-input,
             .content-input-disable {
