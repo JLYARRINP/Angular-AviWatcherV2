@@ -15,9 +15,11 @@ export class ConversationService {
   }
 
   public chat(params: any): Observable<any> {
-console.warn(params,'********');
+  console.warn(params,'********');
 
     let baseConfig = this.environmentManagerHome.currentEnvironemnt.configFile;
+    console.warn(baseConfig);
+    
     const httpOptionsPdf = {
       headers: new HttpHeaders({
         'Ocp-Apim-Subscription-Key': baseConfig.subscriptionKey,
@@ -34,9 +36,9 @@ console.warn(params,'********');
 
     if (params.sessionCode) {
 
-      return this.httpClient.post<any>(`${environment.configFile.url}/conversations/` + params.sessionCode, params.textInput, httpOptionsPdf);
+      return this.httpClient.post<any>(`${this.environmentManagerHome.currentEnvironemnt.configFile.url}/conversations/` + params.sessionCode, params.textInput, httpOptionsPdf);
     } else {
-      return this.httpClient.post<any>(`${environment.configFile.url}/conversations/`, params.textInput, httpOptionsPdf);
+      return this.httpClient.post<any>(`${this.environmentManagerHome.currentEnvironemnt.configFile.url}/conversations/`, params.textInput, httpOptionsPdf);
     }
 
 
