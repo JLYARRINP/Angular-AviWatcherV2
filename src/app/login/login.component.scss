@@ -1,0 +1,42 @@
+@import '../../assets/scss/layout/utils';
+@import '../../assets/scss/colors';
+@import '../../assets/scss/buttons';
+@import '../../assets/scss/fonts';
+.form {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    color: $primary-grey-dark;
+    .content-img {
+        color: $primary-white;
+        background-image: url("./../../assets/img/imagen-login.png");
+        background-position: center center;
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        p {
+            font-family: 'omnes-semibold';
+        }
+    }
+    .text-p {
+        padding-left: 12%;
+    }
+    .text-title {
+        line-height: 1.75rem;
+        color: $primary-grey-dark;
+        font-family: 'omnes-regular';
+    }
+}
+
+.button-container,
+.button-container-disable {
+    button {
+        height: 3rem;
+    }
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex {
+    height: 3rem;
+    align-items: center;
+}

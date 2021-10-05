@@ -1,0 +1,32 @@
+<div class="form hp-100">
+    <div class="b-primary-green content-img hp-100">
+        <p class="m-0 mt-32 ml-32 fts-25">AVIwatcher</p>
+        <div class="text-p mt-60 ">
+            <p class="fts-48 m-0"> Bienvenido </p>
+            <br>
+            <span class="fts-18"> al Gestor Integral de Reclamos y Pedidos Único.</span>
+        </div>
+    </div>
+    <div class="flex-class ai-center jc-center">
+        <form [formGroup]="form">
+            <p class="text-title fts-32 pb-16">Comencemos!</p>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Usuario</mat-label>
+                    <input matInput formControlName="user" placeholder="Usuario">
+                </mat-form-field>
+
+            </div>
+            <div class="pt-16 pb-16">
+                <mat-form-field appearance="outline">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput type="password" formControlName="password" placeholder="password">
+                </mat-form-field>
+
+            </div>
+            <div [ngClass]="form.valid ?'button-container':'button-container-disable'">
+                <button>INICIAR SESION</button>
+            </div>
+        </form>
+    </div>
+</div>

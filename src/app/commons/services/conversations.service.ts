@@ -15,11 +15,7 @@ export class ConversationService {
   }
 
   public chat(params: any): Observable<any> {
-  console.warn(params,'********');
-
     let baseConfig = this.environmentManagerHome.currentEnvironemnt.configFile;
-    console.warn(baseConfig);
-    
     const httpOptionsPdf = {
       headers: new HttpHeaders({
         'Ocp-Apim-Subscription-Key': baseConfig.subscriptionKey,

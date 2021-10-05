@@ -17,15 +17,15 @@ import {MatIconModule} from '@angular/material/icon';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatDialogModule} from '@angular/material/dialog';
-import { ModalComponent } from './modal/modal.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatMenuModule} from '@angular/material/menu';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ChatComponent,
-    ModalComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,

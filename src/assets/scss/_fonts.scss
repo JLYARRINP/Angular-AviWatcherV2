@@ -1,7 +1,11 @@
-$f-primary: '';
-$f-primary-italic: '';
-$f-secondary: '';
-$f-secondary-hand: '';
-$f-secondary-bold: '';
-$f-secondary-light: '';
-$f-secondary-extra-light: '';
+@font-face {
+    font-family: 'omnes-regular';
+    src: url('./../fonts/omnes-regular.eot');
+    src: url('./../fonts/omnes-regular.eot') format('embedded-opentype'), url('./../fonts/omnes-regular.woff2') format('woff2'), url('./../fonts/omnes-regular.woff') format('woff'), url('./../fonts/omnes-regular.svg') format('svg');
+}
+
+@font-face {
+    font-family: 'omnes-semibold';
+    src: url('./../fonts/omnes-semibold.eot');
+    src: url('./../fonts/omnes-semibold.eot') format('embedded-opentype'), url('./../fonts/omnes-semibold.woff2') format('woff2'), url('./../fonts/omnes-semibold.woff') format('woff'), url('./../fonts/omnes-semibold.svg') format('svg');
+}
