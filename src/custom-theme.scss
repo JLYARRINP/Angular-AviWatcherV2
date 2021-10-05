@@ -54,6 +54,7 @@ $type-colors: ( string: #00BB31, number: #0033A1, boolean: #EB0046, date: #64B4E
     .segment {
         padding: 2px;
         margin: 1px 1px 1px 12px;
+        overflow: hidden !important;
         .segment-main {
             word-wrap: break-word;
             .toggler {

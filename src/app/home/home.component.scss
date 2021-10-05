@@ -99,3 +99,9 @@
     background-color: $primary-watermelon;
     color: $primary-white;
 }
+
+@media screen and (max-width: 900px) {
+    .section-2 {
+        width: auto !important;
+    }
+}

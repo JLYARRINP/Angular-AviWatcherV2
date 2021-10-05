@@ -2,7 +2,6 @@ import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild }
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import html2canvas from 'html2canvas';
 import * as XLSX from 'xlsx';
-import * as FileSaver from 'file-saver';  
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -29,6 +28,9 @@ export class ChatComponent implements OnInit {
   @Input() activeDownload: boolean | undefined;
   @Input() resetText: boolean | undefined;
   @Output() emitChangeText = new EventEmitter<Object>();
+  @ViewChild('tableID')
+  tableID!: ElementRef;
+  fileName= 'ExcelSheet.xlsx'; 
   constructor(private formBuilder: FormBuilder,) {
     this.form = this.formBuilder.group({
       textInput: new FormControl('', [Validators.required]),
@@ -82,25 +84,11 @@ export class ChatComponent implements OnInit {
   }
 
   public exportAsExcelFile(json: any[], excelFileName: string): void {
-   console.warn(json);
-   let valueArmados ={
-     textUsuario : json[0].text,
-     textBot:json[0].answers
-   }
-   console.warn('valueArmados...',valueArmados);
-  //  json.forEach(value=>{
-  //    this.valor = value.text;
-  //  })
-    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(json);
-    console.warn(worksheet);
-    const workbook: XLSX.WorkBook = {Sheets: {'data': worksheet}, SheetNames: ['data']};
-    const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
-    // XLSX.writeFile(workbook, ChatComponent.toExportFileName(excelFileName));
-    this.saveAsExcelFile(excelBuffer, excelFileName); 
-    console.warn(excelBuffer);
+    const ws: XLSX.WorkSheet=XLSX.utils.table_to_sheet(this.tableID.nativeElement);
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+    /* save to file */
+    XLSX.writeFile(wb, 'SheetJS.xlsx');
   }
-  private saveAsExcelFile(buffer: any, fileName: string): void {  
-    const data: Blob = new Blob([buffer], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8'});  
-    FileSaver.saveAs(data, fileName + '_export_' + new  Date().getTime() + '.xlsx');  
- } 
 }

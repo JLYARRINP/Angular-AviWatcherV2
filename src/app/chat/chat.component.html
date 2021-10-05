@@ -81,17 +81,44 @@
                 <button mat-button [matMenuTriggerFor]="aboveMenu" [disabled]="!activeDownload">EXPORTAR</button>
                 <mat-menu #aboveMenu="matMenu" Position="above">
                     <button class="button-export" mat-menu-item (click)="exportAsExcelFile(dataResponseJson,'AVIwatcher')">
-                        <img src="assets/icon/icon-excel.svg" alt="icon-excel">
-                        <span class="pl-8 fts-12">Excel</span>
-                    </button>
+            <img src="assets/icon/icon-excel.svg" alt="icon-excel">
+            <span class="pl-8 fts-12">Excel</span>
+          </button>
                     <button class="button-export" mat-menu-item (click)="openDialog()">
-                        <img src="assets/icon/icon-imagen.svg" alt="icon-imagen">
-                        <span class="pl-8 fts-12">Imagen</span>
-                    </button>
+            <img src="assets/icon/icon-imagen.svg" alt="icon-imagen">
+            <span class="pl-8 fts-12">Imagen</span>
+          </button>
                 </mat-menu>
             </div>
         </footer>
     </form>
+    <table id="tableID" #tableID style="visibility: hidden;">
+        <thead>
+            <tr>
+                <th>Text</th>
+                <th>Código</th>
+                <th>Confianza</th>
+                <th>Flujo</th>
+                <th>Texto técnico</th>
+                <th>Botones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <div *ngFor="let item of dataResponseJson">
+                <tr>
+                    <td>{{item.text}}</td>
+                </tr>
+                <tr *ngFor="let value of item.answers">
+                    <td>{{value.text}}</td>
+                    <td>{{value.code}}</td>
+                    <td>{{value.confidence}}</td>
+                    <td>{{value.flow}}</td>
+                    <td>{{value.technicalText}}</td>
+                    <td>{{value.options}}</td>
+                </tr>
+            </div>
+        </tbody>
+    </table>
 </div>
 <div #headers id="title" style="margin-top: -3.25rem; margin-bottom: 1rem;">
 

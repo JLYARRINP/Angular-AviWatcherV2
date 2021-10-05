@@ -74,7 +74,7 @@ export class HomeComponent implements OnInit {
       sessionCode: this.sessionCode,
       enviroment: this.formNav.value.ambiente,
       bot: this.bot,
-      numberIdentificador: this.formNav.value.identifier + this.formNav.value.number
+      numberIdentificador: this.formNav.value.identifier.slice(1) + this.formNav.value.number
     }
     this.conversationService.chat(params).subscribe(
       data => {
